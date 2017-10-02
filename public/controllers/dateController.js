@@ -6,8 +6,8 @@ var app = app || {};
 
   function Meet (rawSQLResults) {
     Object.assign(this, rawSQLResults);
-    this.militaryTime = toMilitaryTime(rawSQLResults.time);
-  };
+    this.militaryTime = toMilitaryTime(rawSQLResults.Time);
+  }
 
   //1) .get request to SQL database, retrieve all meeting data
   //2) save meeting data into array
@@ -37,28 +37,30 @@ var app = app || {};
       )
   };
 
-function weekdayDifference(meet) {
-  var dayIndex = todaysDate.getDay();
-  var meetIndex = daysOfWeek.indexOf(meet.Weekday);
-  var difference = meetIndex - dayIndex;
-  return difference > 0 ? difference : difference + 7;
-}
-
-// 	＼(〇_ｏ)／
-
-function toMilitaryTime(time) {
-  if ((time).includes('PM')) {
-    var transformedTime = time.replace(/^\d{1,2}/, parseInt(time.match(/^\d{1,2}/)) + 12).split(' ')[0];
-  } else {
-    var transformedTime = time.split(' ')[0];
+  function weekdayDifference(meet) {
+    var dayIndex = todaysDate.getDay();
+    var meetIndex = daysOfWeek.indexOf(meet.Weekday);
+    var difference = meetIndex - dayIndex;
+    return difference > 0 ? difference : difference + 7;
   }
-}
+
+  // 	＼(〇_ｏ)／
+
+  function toMilitaryTime(time) {
+    var transformedTime;
+    if ((time).includes('PM')) {
+      transformedTime = time.replace(/^\d{1,2}/, parseInt(time.match(/^\d{1,2}/)) + 12).split(' ')[0];
+    } else {
+      transformedTime = time.split(' ')[0];
+    }
+    return transformedTime;
+  }
 
   meetings.dateFiltered = meetings.all.filter(function(meet) {
-    if (meet.toString().includes(todaysWeekday) && todaysDate < meeting.militaryTime && meeting.militaryTime < endOfToday) {
+    if (meet.toString().includes(todaysWeekday) && todaysDate < meet.militaryTime && meet.militaryTime < endOfToday) {
       meetings.timeTarget.push(meet);
     }
-  }
+  })
 
   module.meetings = meetings;
 })(app);
