@@ -61,7 +61,7 @@ var app = app || {};
   }
 
   meetings.dateFiltered = meetings.all.filter(function(meet) {
-    if (meet.Weekday.includes(todaysWeekday) && todaysDate < meet.militaryTime && meet.militaryTime < endOfToday) {
+    if (meet.Weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
       meetings.timeTarget.push(meet);
     }
   })
