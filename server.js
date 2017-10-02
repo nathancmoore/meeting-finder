@@ -3,6 +3,7 @@
 const EXPRESS = require('express');
 const bodyParser = require('body-parser');
 const PG = require('pg');
+const FS = require('fs');
 const PORT = process.env.PORT || 3001;
 const app = EXPRESS();
 
@@ -52,5 +53,18 @@ app.get('*', (request, response) => {
       ,Updated       VARCHAR(20) NOT NULL
     );`
   )
+    .then(client.query('SELECT * FROM meetingDatabase;'))
+    .then(result => {
+      if (!result.rowCount) {
+        FS.readFile('./public/data/meetingDatabase.json', (err, fd) =>{
+          JSON.parse(fd.toString()).forEach(ele => {
+            client.query(`
+              INSERT INTO meetingDatabase(District,GSIG_Division,Status,Meeting_Name,Group_Name,Weekday,Time,End_Time,OC,Location_Name,Street,Suite,City,State,Zip,Room,Notes,Duration,Language,Environment,Specialty,Format,Accessibility,Updated)
+              VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24) ON CONFLICT DO NOTHING;`
+              [ele.District, ele.GISG_Division, ele.Status, ele.Meeting_Name, ele.Group_Name, ele.Weekday, ele.Time, ele.End_Time, ele.OC, ele.Location_Name, ele.Street, ele.Suite, ele.City, ele.State, ele.Zip, ele.Room, ele.Notes, ele.Duration, ele.Language, ele.Environment, ele.Specialty, ele.Format, ele.Accessibility, ele.Updated]
+            );}
+          );
+        });
+      }})
     .catch(console.error);
 })();
