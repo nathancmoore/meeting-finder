@@ -16,8 +16,9 @@ var app = app || {};
 
   var todaysDate = new Date();
   var endOfToday = new Date();
-  var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   endOfToday.setHours(24, 0, 0, 0);
+
+  var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   var todaysWeekday = todaysDate.toString().substring(0, 3);
 
@@ -27,22 +28,18 @@ var app = app || {};
   meetings.timeTarget = [];
 
   meetings.getAllMeetings = function(callback) {
-
-    // ajax call (get request). render all articles. Move to Models? Push into meetings.all
-
-//     Article.fetchAll = callback => {
-//   $.get('/meetings')
-//   .then(
-//     results => {
-//       Article.loadAll(results);
-//       callback();
-//     }
-//   )
-// };
+    $.get('/meetings')
+      .then(
+        results => {
+          meetings.all.push(results);
+          callback();
+        }
+      )
+  };
 
 function weekdayDifference(meet) {
   var dayIndex = todaysDate.getDay();
-  var meetIndex = daysOfWeek.indexOf(meet.weekday);
+  var meetIndex = daysOfWeek.indexOf(meet.Weekday);
   var difference = meetIndex - dayIndex;
   return difference > 0 ? difference : difference + 7;
 }
@@ -58,13 +55,10 @@ function toMilitaryTime(time) {
 }
 
   meetings.dateFiltered = meetings.all.filter(function(meet) {
-    if (meet.toString().includes(todaysWeekday) && todaysDate < (meeting.time) &&  meeting.time < endOfToday) {
-      meeting.timeTarget.push(meet);
+    if (meet.toString().includes(todaysWeekday) && todaysDate < meeting.militaryTime && meeting.militaryTime < endOfToday) {
+      meetings.timeTarget.push(meet);
     }
   }
-
-  // meetings.with = attr => meetings.all.filter(repo => repo[attr]);
-  meet => meet.DATE.isBefore)
 
   module.meetings = meetings;
 })(app);
