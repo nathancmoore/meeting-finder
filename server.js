@@ -3,10 +3,10 @@
 const EXPRESS = require('express');
 const bodyParser = require('body-parser');
 const PG = require('pg');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = EXPRESS();
 
-const conString = 'public/data/meetingDatabase.json';
+const conString = process.env.DATABASE_URL || 'postgres://postgres:postgresPASSWORD123@localhost:5432/meetingfinder';
 const client = new PG.Client(conString);
 
 app.use(bodyParser.json());
@@ -15,13 +15,9 @@ app.use(EXPRESS.static('./public'));
 app.listen(PORT, () => console.log(`Server running on port ${PORT}.`));
 
 client.connect();
-// client.on('error', err => console.error(err));
+client.on('error', err => console.error(err));
 
 //other requests go here.
-
-app.get('*', (request, response) => {
-  response.sendFile('index.html', {root: './public'});
-});
 
 (function loadDatabase() {
   client.query(
@@ -52,6 +48,10 @@ app.get('*', (request, response) => {
       ,Updated       VARCHAR(20) NOT NULL
     );`
   )
-    .then()
     .catch(console.error);
 })();
+
+app.get('*', (request, response) => {
+  response.sendFile('index.html', {root: './public'});
+  console.log(response);
+});
