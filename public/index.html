@@ -3,7 +3,7 @@
   <head>
       <meta name="viewport" content="width=device-width">
       <meta charset="utf-8">
-      
+
       <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -19,23 +19,37 @@
     <title></title>
   </head>
   <body>
-    <h1>Meeting </h1>
+    <h1> Meeting </h1>
     <template id="search-form-template"> 
       <table>
-     <form action="submit">Search Criteria Filter</form>
+     <form action="submit"> Search Criteria Filter </form>
       </table>
     </template>
 
     <template id="google-map-template">
-      <map name="google-map">Map of Locations After Filter</map>
-      <section id="static-list"><ul></ul></section>
+      <map name="google-map"> Map of Locations After Filter </map>
+      <section id="static-list">
+        <ul id="static-list-template"></ul>
+      </section>
     </template>
 
     <template id="about-me">
-      <div class="images-group" id="img-one"></div>
-      <div class="images-group" id="img-two"></div>
-      <div class="images-group" id="img-three"></div>
-      <div class="images-group" id="img-four"></div>
+      <div class="images-group" id="img-one">
+        <img src="" alt="">
+          <section id="bio-one"></section>            
+      </div>
+      <div class="images-group" id="img-two">
+        <img src="" alt="">
+          <section id="bio-two"></section>  
+      </div>
+      <div class="images-group" id="img-three">
+        <img src="" alt="">
+          <section id="bio-three"></section>
+      </div>
+      <div class="images-group" id="img-four">
+        <img src="" alt="">
+          <section id="bio-four"></section>
+      </div>
     </template>
   </body>
   <!-- As the scripts change their file path we need to keep in mind to change these accordingly but have them setup for early deployment and tests -->
