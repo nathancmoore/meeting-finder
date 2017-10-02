@@ -7,12 +7,10 @@ var app = app || {};
   function Meet (rawSQLResults) {
     Object.assign(this, rawSQLResults);
     this.militaryTime = toMilitaryTime(rawSQLResults.Time);
+    this.nextMeeting = new Date();
+    this.nextMeeting.setDate(todaysDate.getDate() + weekdayDifference(rawSQLResults.Weekday));
+    this.nextMeeting.setHours(this.militaryTime.split(':')[0], this.militaryTime.split(':')[1], 0, 0);
   }
-
-  //1) .get request to SQL database, retrieve all meeting data
-  //2) save meeting data into array
-  //3) iterate through array
-  //4) if SQLArray[i].isBefore (datetime function) 11:59PM today (comparing to todayDate variable), then use jQuery to add to results and index.html
 
   var todaysDate = new Date();
   var endOfToday = new Date();
@@ -37,18 +35,24 @@ var app = app || {};
       )
   };
 
-  function weekdayDifference(meet) {
+  function weekdayDifference(weekday) {
     var dayIndex = todaysDate.getDay();
-    var meetIndex = daysOfWeek.indexOf(meet.Weekday);
+    var meetIndex = daysOfWeek.indexOf(weekday);
     var difference = meetIndex - dayIndex;
-    return difference > 0 ? difference : difference + 7;
+    return difference >= 0 ? difference : difference + 7;
   }
 
   // 	＼(〇_ｏ)／
 
   function toMilitaryTime(time) {
     var transformedTime;
-    if ((time).includes('PM')) {
+    if (time.substring(0, 2) === '12') {
+      if (time.includes('AM')) {
+        transformedTime = '0' + time.substring(2, 5);
+      } else {
+        transformedTime = time.split(' ')[0];
+      }
+    } else if (time.includes('PM')) {
       transformedTime = time.replace(/^\d{1,2}/, parseInt(time.match(/^\d{1,2}/)) + 12).split(' ')[0];
     } else {
       transformedTime = time.split(' ')[0];
@@ -57,7 +61,7 @@ var app = app || {};
   }
 
   meetings.dateFiltered = meetings.all.filter(function(meet) {
-    if (meet.toString().includes(todaysWeekday) && todaysDate < meet.militaryTime && meet.militaryTime < endOfToday) {
+    if (meet.Weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
       meetings.timeTarget.push(meet);
     }
   })
