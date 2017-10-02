@@ -1,7 +1,7 @@
 # Meeting-Finder
 Code Fellows 301d24 Final Project
 ## Getting Started
-
+The premise of the application is to create something that is user friendly and mobile first. The actual function of the application is to help people find meetings in their area that match the specific criteria from the large database of available meetings. Then to take those matches and interface it with Google Maps, so they can easily locate and get to their meeting. 
 
 ## Deployment
 
