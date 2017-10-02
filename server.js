@@ -17,6 +17,10 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}.`));
 client.connect();
 client.on('error', err => console.error(err));
 
+app.get('*', (request, response) => {
+  response.sendFile('index.html', {root: './public'});
+});
+
 //other requests go here.
 
 (function loadDatabase() {
@@ -50,8 +54,3 @@ client.on('error', err => console.error(err));
   )
     .catch(console.error);
 })();
-
-app.get('*', (request, response) => {
-  response.sendFile('index.html', {root: './public'});
-  console.log(response);
-});
