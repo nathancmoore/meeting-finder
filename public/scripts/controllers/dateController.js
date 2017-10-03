@@ -36,7 +36,7 @@ var app = app || {};
           });
           // callback();
         }
-      );
+      )
   };
 
   function weekdayDifference(weekday) {
@@ -68,7 +68,8 @@ var app = app || {};
     if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
       meetings.timeTarget.push(meet);
     }
-  });};
+  })
+  }
 
   module.meetings = meetings;
 })(app);

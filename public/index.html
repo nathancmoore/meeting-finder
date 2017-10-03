@@ -24,10 +24,22 @@
     <div>
       <table>
       <form id="form" action="submit">
-        <input id="input-location" type="text">
+        <input id="input-location" type="text" val="">
         <input id="input-date" type="date" val="">
-        <!-- <input id="input-meeting-name" type="text"> -->
-        <input id="input-time" type="dropdown">
+        <select name="Meeting Time" id="input-time">
+          <option value="5-12">Morning (5am - 12pm)</option>
+          <option value="12-4">Afternoon (12pm - 4pm)</option>
+          <option value="4-8">Evening (4pm - 8pm)</option>
+          <option value="8-12">Night (8pm+)</option>
+        </select>
+
+        <select name="Search Radius" id="input-radius">
+          <option value="2">2 Miles</option>
+          <option value="5">5 Miles</option>
+          <option value="8">8 Miles</option>
+          <option value="10">10 Miles</option>
+        </select>
+        <input type="submit" value="Submit">
       </form>
       </table>
     </div>

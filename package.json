@@ -7,7 +7,8 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.1",
     "fs": "0.0.1-security",
-    "pg": "^7.3.0"
+    "pg": "^7.3.0",
+    "psql": "0.0.1"
   },
   "devDependencies": {},
   "scripts": {
