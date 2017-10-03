@@ -24,15 +24,16 @@ var app = app || {};
 
   meetings.all = [];
   meetings.timeTarget = [];
+  //timeTarget should be an array of
 
   meetings.getAllMeetings = function(callback) {
     $.get('/meetings')
       .then(
         results => {
-          meetings.all.push(results);
-          callback();
+          meetings.all.push(new Meet(results));
+          // callback();
         }
-      )
+      );
   };
 
   function weekdayDifference(weekday) {
@@ -64,7 +65,7 @@ var app = app || {};
     if (meet.Weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
       meetings.timeTarget.push(meet);
     }
-  })
+  });
 
   module.meetings = meetings;
 })(app);
