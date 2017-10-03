@@ -24,12 +24,13 @@ var app = app || {};
 
   meetings.all = [];
   meetings.timeTarget = [];
+  //timeTarget should be an array of
 
   meetings.getAllMeetings = function(callback) {
     $.get('/meetings')
       .then(
         results => {
-          meetings.all.push(results);
+          meetings.all.push(new Meet(results));
           callback();
         }
       )
