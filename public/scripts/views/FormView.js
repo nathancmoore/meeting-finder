@@ -17,5 +17,5 @@ var app = app || {};
 
   })
 
-  module.FormData = FormData;
+  module.FormView = FormView;
 })(app);
