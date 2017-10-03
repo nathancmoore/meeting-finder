@@ -6,9 +6,9 @@ var app = app || {};
 
   function Meet (rawSQLResults) {
     Object.assign(this, rawSQLResults);
-    this.militaryTime = toMilitaryTime(rawSQLResults.Time);
+    this.militaryTime = toMilitaryTime(rawSQLResults.time);
     this.nextMeeting = new Date();
-    this.nextMeeting.setDate(todaysDate.getDate() + weekdayDifference(rawSQLResults.Weekday));
+    this.nextMeeting.setDate(todaysDate.getDate() + weekdayDifference(rawSQLResults.weekday));
     this.nextMeeting.setHours(this.militaryTime.split(':')[0], this.militaryTime.split(':')[1], 0, 0);
   }
 
@@ -30,7 +30,10 @@ var app = app || {};
     $.get('/meetings')
       .then(
         results => {
-          meetings.all.push(new Meet(results));
+          results.forEach(obj => {
+            var newGuy = new Meet(obj);
+            meetings.all.push(newGuy);
+          });
           // callback();
         }
       );
@@ -61,11 +64,11 @@ var app = app || {};
     return transformedTime;
   }
 
-  meetings.dateFiltered = meetings.all.filter(function(meet) {
-    if (meet.Weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
+  meetings.dateFiltered = () => {meetings.all.filter(meet => {
+    if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
       meetings.timeTarget.push(meet);
     }
-  });
+  });};
 
   module.meetings = meetings;
 })(app);
