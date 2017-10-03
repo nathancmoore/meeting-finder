@@ -64,11 +64,11 @@ var app = app || {};
     return transformedTime;
   }
 
-  meetings.dateFiltered = meetings.all.filter(function(meet) {
-    if (meet.Weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
+  meetings.dateFiltered = () => {meetings.all.filter(meet => {
+    if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
       meetings.timeTarget.push(meet);
     }
-  });
+  });};
 
   module.meetings = meetings;
 })(app);
