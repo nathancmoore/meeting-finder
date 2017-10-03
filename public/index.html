@@ -24,7 +24,6 @@
     <div>
       <table>
       <form id="form">
-        <input id="input-location" type="text" val="">
         <input id="input-date" type="date" val="">
         <select name="Meeting Time" id="input-time">
           <option value="5-12">Morning (5am - 12pm)</option>
@@ -72,8 +71,9 @@
     </template>
   </body>
   <!-- As the scripts change their file path we need to keep in mind to change these accordingly but have them setup for early deployment and tests -->
-  <script src=""></script>
+  <script src="scripts/views/FormView.js"></script>
   <script src="scripts/model/FormModel.js"></script>
+  
   <script src="scripts/controllers/dateController.js"></script>
   <!-- <script src="scripts/views/mapView.js"></script> -->
   <script type="text/javascript">
