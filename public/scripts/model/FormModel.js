@@ -11,7 +11,7 @@ var app = app || {};
 
 	FormData.all = [];
 	//TODO: create form on table with criteria to search with
-	let $searchFormTemplate = $('#search-form-template').
+	let $searchForm = $('#form').click(); 
 
   //TODO:  filter out the meetings that are not submitted into the form as the "meet this criteria fields" 
 
