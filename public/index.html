@@ -30,12 +30,13 @@
       </table>
     </div>
 
-    <template id="google-map-template">
-      <map name="google-map"> Map of Locations After Filter </map>
+    <div id="map-area">
+      <div id="google-map">
+      </div>
       <section id="static-list">
         <ul id="static-list-template"></ul>
       </section>
-    </template>
+    </div>
 
     <template id="about-me">
       <div class="images-group" id="img-one">
@@ -60,9 +61,10 @@
   <script src=""></script>
   <script src=""></script>
   <script src="scripts/controllers/dateController.js"></script>
-  <!-- <script src="scripts/views/mapView.js"></script> -->
+  <script src="scripts/views/mapView.js"></script>
   <script type="text/javascript">
     app.meetings.getAllMeetings();
     app.meetings.dateFiltered();
   </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlz5afSBtdcxiXiYNLHoptazIrm5FvJ6A&callback=initMap" async defer></script>
 </html>
