@@ -33,7 +33,7 @@ var app = app || {};
           meetings.all.push(new Meet(results));
           // callback();
         }
-      );
+      )
   };
 
   function weekdayDifference(weekday) {
@@ -65,7 +65,7 @@ var app = app || {};
     if (meet.Weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
       meetings.timeTarget.push(meet);
     }
-  });
+  })
 
   module.meetings = meetings;
 })(app);
