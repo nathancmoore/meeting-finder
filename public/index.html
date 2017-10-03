@@ -20,17 +20,15 @@
   </head>
   <body>
     <h1> Meeting </h1>
-    <template id="search-form-template">
+    <div>
       <table>
       <form id="form" action="submit">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
+        <input id="input-location" type="text">
+        <!-- <input id="input-meeting-name" type="text"> -->
+        <input id="input-date-time" type="datetime-local">
       </form>
       </table>
-    </template>
+    </div>
 
     <template id="google-map-template">
       <map name="google-map"> Map of Locations After Filter </map>
@@ -62,7 +60,9 @@
   <script src=""></script>
   <script src=""></script>
   <script src="scripts/controllers/dateController.js"></script>
-  <script src="scripts/views/mapView.js"></script> -->
-  <!-- <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlz5afSBtdcxiXiYNLHoptazIrm5FvJ6A&callback=initMap" async defer></script>
+  <!-- <script src="scripts/views/mapView.js"></script> -->
+  <script type="text/javascript">
+    app.meetings.getAllMeetings();
+    app.meetings.dateFiltered();
+  </script>
 </html>

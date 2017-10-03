@@ -4,7 +4,7 @@ const EXPRESS = require('express');
 const bodyParser = require('body-parser');
 const PG = require('pg');
 const FS = require('fs');
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const app = EXPRESS();
 
 const conString = process.env.DATABASE_URL || 'postgres://postgres:postgresPASSWORD123@localhost:5432/meetingfinder';
@@ -63,7 +63,7 @@ app.get('*', (request, response) => {
       client.query('SELECT * FROM meetingDatabase;')
         .then(result => {
           console.log(result.rowCount);
-          if(!result.rowsCount) {
+          if(!result.rowCount) {
             FS.readFile('./public/data/meetingDatabase.json', (err, fd) => {
               JSON.parse(fd.toString()).forEach(ele => {
                 if(ele.District) {

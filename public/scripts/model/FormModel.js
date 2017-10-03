@@ -9,7 +9,27 @@ var app = app || {};
     Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   }
 
-	FormData.all = [];
+  FormData.all = [];
+  
+  let $searchForm = $('#form');
+  $searchForm.on('keyup', function(){
+    let searchString = $searchForm.val().trim();
+    // take the searchString value and compare it to the name value of each pokemon.
+    let filteredIn = $('#form').toArray().filter(function(row){
+      return row.id.includes(searchString);
+    });
+    let filteredOut = $('#form').toArray().filter(function(row){
+      return !row.id.includes(searchString);
+    });
+    $(filteredIn).show();
+    $(filteredIn).each((idx, item) => {
+      $(item).next().show()
+    });
+    $(filteredOut).hide();
+    $(filteredOut).each((idx, item) => {
+      $(item).next().hide()
+    });
+  })
 	//TODO: create form on table with criteria to search with
 	let $searchForm = $('#form').click(); 
 
