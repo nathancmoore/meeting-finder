@@ -63,7 +63,7 @@ app.get('*', (request, response) => {
       client.query('SELECT * FROM meetingDatabase;')
         .then(result => {
           console.log(result.rowCount);
-          if(!result.rowsCount) {
+          if(!result.rowCount) {
             FS.readFile('./public/data/meetingDatabase.json', (err, fd) => {
               JSON.parse(fd.toString()).forEach(ele => {
                 if(ele.District) {
