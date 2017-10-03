@@ -9,35 +9,21 @@ var app = app || {};
   //   Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   // }
 
+  var Submission = {};
+
   FormData.all = [];
-  var calendarString;
-  var searchString;
-  var radiusString;
-  var timeString;
 
-  let $searchForm = $('#input-location');
-  $searchForm.on('submit', function(){
-    searchString = $searchForm.val();
-    console.log(searchString);
-  });
+  $('#form').on('submit', function(event) {
+    event.preventDefault();
 
-  let $calendarData = $('#input-date');
-  $calendarData.on('submit', function() {
-    calendarString = $calendarData.val();
-    console.log(calendarString);
-  });
+    Submission.searchString = $('#input-location').val();
+    Submission.calendarString = $('#input-date').val();
+    Submission.timeString = $('#input-time').val();
+    Submission.radiusString = $('#input-radius').val();
 
-  let $timeData = $('#input-time');
-  $timeData.on('submit', function() {
-    timeString = $timeData.val();
-    console.log(timeString);
-  });
+    console.log(Submission);
 
-  let $radiusData = $('#input-radius');
-  $radiusData.on('submit', function() {
-    radiusString = $radiusData.val();
-    console.log(radiusString);
-  });
+  })
 
   module.FormData = FormData;
 })(app);

@@ -23,7 +23,7 @@
     <h1> Meeting </h1>
     <div>
       <table>
-      <form id="form" action="submit">
+      <form id="form">
         <input id="input-location" type="text" val="">
         <input id="input-date" type="date" val="">
         <select name="Meeting Time" id="input-time">
@@ -75,10 +75,10 @@
   <script src=""></script>
   <script src="scripts/model/FormModel.js"></script>
   <script src="scripts/controllers/dateController.js"></script>
-  <script src="scripts/views/mapView.js"></script>
+  <!-- <script src="scripts/views/mapView.js"></script> -->
   <script type="text/javascript">
     app.meetings.getAllMeetings();
     app.meetings.dateFiltered();
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlz5afSBtdcxiXiYNLHoptazIrm5FvJ6A&callback=initMap" async defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlz5afSBtdcxiXiYNLHoptazIrm5FvJ6A&callback=initMap" async defer></script> -->
 </html>
