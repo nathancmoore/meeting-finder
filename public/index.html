@@ -17,14 +17,16 @@
       <link rel="stylesheet" href="/css/layout.css">
       <link rel="stylesheet" href="/css/base.css">
 
-    <title></title>
+    <title> Meeting Finder</title>
   </head>
+  <header>
+    <nav id="nav-bar"></nav>
+  </header>
   <body>
     <h1> Meeting </h1>
     <div>
       <table>
-      <form id="form" action="submit">
-        <input id="input-location" type="text" val="">
+      <form id="form">
         <input id="input-date" type="date" val="">
         <select name="Meeting Time" id="input-time">
           <option value="5-12">Morning (5am - 12pm)</option>
@@ -72,13 +74,15 @@
     </template>
   </body>
   <!-- As the scripts change their file path we need to keep in mind to change these accordingly but have them setup for early deployment and tests -->
-  <script src=""></script>
+  <script src="scripts/views/FormView.js"></script>
   <script src="scripts/model/FormModel.js"></script>
+  
   <script src="scripts/controllers/dateController.js"></script>
-  <script src="scripts/views/mapView.js"></script>
+  <!-- <script src="scripts/views/mapView.js"></script> -->
   <script type="text/javascript">
     app.meetings.getAllMeetings();
     app.meetings.dateFiltered();
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlz5afSBtdcxiXiYNLHoptazIrm5FvJ6A&libraries=geometry&callback=initMap" async defer></script>
+  <script src="/scripts/controllers/routes.js" charset="utf-8"></script>
 </html>
