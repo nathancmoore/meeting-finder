@@ -18,11 +18,17 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}.`));
 client.connect();
 client.on('error', err => console.error(err));
 
-app.get('*', (request, response) => {
-  response.sendFile('index.html', {root: './public'});
+app.get('/meetings', (request, response) => {
+  client.query('SELECT * FROM meetingDatabase;')
+    .then(result => response.send(result.rows))
+    .catch(console.error);
 });
 
 //other requests go here.
+
+app.get('*', (request, response) => {
+  response.sendFile('index.html', {root: './public'});
+});
 
 (function loadDatabase() {
   client.query(
@@ -53,20 +59,24 @@ app.get('*', (request, response) => {
       ,Updated       VARCHAR(20) NOT NULL
     );`
   )
-    .then(client.query('SELECT * FROM meetingDatabase;'))
-    .then(result => {
-      if (!result.rowsCount) {
-        FS.readFile('./public/data/meetingDatabase.json', (err, fd) =>{
-          JSON.parse(fd.toString()).forEach(ele => {
-            if(ele.District){
-              client.query (`
-                INSERT INTO meetingDatabase(District,GSIG_Division,Status,Meeting_Name,Group_Name,Weekday,Time,End_Time,OC,Location_Name,Street,Suite,City,State,Zip,Room,Notes,Duration,Language,Environment,Specialty,Format,Accessibility,Updated)
-                VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24) ON CONFLICT DO NOTHING`,
-                [ele.District, ele.GSIG_Division, ele.Status, ele.Meeting_Name, ele.Group_Name, ele.Weekday, ele.Time, ele.End_Time, ele.OC, ele.Location_Name, ele.Street, ele.Suite, ele.City, ele.State, ele.Zip, ele.Room, ele.Notes, ele.Duration, ele.Language, ele.Environment, ele.Specialty, ele.Format, ele.Accessibility, ele.Updated]
-              );}
-          }
-          );
-        });
-      }})
-    .catch(console.error);
+    .then(() => {
+      client.query('SELECT * FROM meetingDatabase;')
+        .then(result => {
+          console.log(result.rowCount);
+          if(!result.rowsCount) {
+            FS.readFile('./public/data/meetingDatabase.json', (err, fd) => {
+              JSON.parse(fd.toString()).forEach(ele => {
+                if(ele.District) {
+                  client.query(`
+                    INSERT INTO meetingDatabase(District,GSIG_Division,Status,Meeting_Name,Group_Name,Weekday,Time,End_Time,OC,Location_Name,Street,Suite,City,State,Zip,Room,Notes,Duration,Language,Environment,Specialty,Format,Accessibility,Updated)
+                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24) ON CONFLICT DO NOTHING`,
+                    [ele.District, ele.GSIG_Division, ele.Status, ele.Meeting_Name, ele.Group_Name, ele.Weekday, ele.Time, ele.End_Time, ele.OC, ele.Location_Name, ele.Street, ele.Suite, ele.City, ele.State, ele.Zip, ele.Room, ele.Notes, ele.Duration, ele.Language, ele.Environment, ele.Specialty, ele.Format, ele.Accessibility, ele.Updated]
+                  );
+                  ;}
+              }
+              );
+            });
+          }})
+        .catch(console.error);
+    });
 })();
