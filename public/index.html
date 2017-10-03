@@ -10,6 +10,7 @@
       crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
       <script src="https://use.fontawesome.com/25669ba756.js"></script>
+      <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
       <link rel="stylesheet" href="/css/reset.css">
       <link rel="stylesheet" href="/css/modules.css">
@@ -24,8 +25,9 @@
       <table>
       <form id="form" action="submit">
         <input id="input-location" type="text">
+        <input id="input-date" type="date" val="">
         <!-- <input id="input-meeting-name" type="text"> -->
-        <input id="input-date-time" type="datetime-local">
+        <input id="input-time" type="dropdown">
       </form>
       </table>
     </div>
@@ -58,9 +60,9 @@
   </body>
   <!-- As the scripts change their file path we need to keep in mind to change these accordingly but have them setup for early deployment and tests -->
   <script src=""></script>
-  <script src=""></script>
+  <script src="scripts/model/FormModel.js"></script>
   <script src="scripts/controllers/dateController.js"></script>
-  <!-- <script src="scripts/views/mapView.js"></script> -->
+
   <script type="text/javascript">
     app.meetings.getAllMeetings();
     app.meetings.dateFiltered();
