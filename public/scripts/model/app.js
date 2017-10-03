@@ -9,7 +9,9 @@ var app = app || {};
     Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   }
 
-  FormData.all = [];
+	FormData.all = [];
+	//TODO: create form on table with criteria to search with
+	let $searchFormTemplate = $('#search-form-template').
 
   //TODO:  filter out the meetings that are not submitted into the form as the "meet this criteria fields" 
 
