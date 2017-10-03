@@ -1,0 +1,9 @@
+#map-area, html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#google-map {
+  height: 80%;
+  width: 80%;
+}
