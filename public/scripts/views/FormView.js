@@ -17,6 +17,7 @@ var app = app || {};
       // app.meetings.makeFormDate();
       console.log(formData.Submission);
       app.meetings.dateFiltered();
+      app.mapThings.makeMarkers();
     });
   };
 

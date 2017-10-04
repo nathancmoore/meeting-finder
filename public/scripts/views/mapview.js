@@ -10,9 +10,8 @@ var app = app || {};
   mapThings.map;
   mapThings.infoWindow;
   mapThings.geocoder;
-  mapThings.initMap = initMap;
 
-  function initMap() {
+  mapThings.initMap = function initMap() {
     mapThings.geocoder = new google.maps.Geocoder();
     mapThings.map = new google.maps.Map(document.getElementById('google-map'), {
       center: {lat: 47.608, lng: -122.335167},
@@ -38,7 +37,8 @@ var app = app || {};
     } else {
       handleLocationError(false, mapThings.infoWindow, mapThings.map.getCenter());
     }
-  }
+  };
+
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
@@ -47,20 +47,13 @@ var app = app || {};
     infoWindow.open(mapThings.map);
   }
 
-  function makeMarkers() {
+  mapThings.makeMarkers = function () {
     app.meetings.filtered.forEach((ele, idx) => {
-      mapThings.geocoder.geocode({ 'address': ele.street}, function(results, status) {
-        if (status === 'OK') {
-          var mtgLocation = new google.maps.LatLng(results[idx].geometry.location.lat(),results[idx].geometry.location.lng());
-          var distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(userLocation, mtgLocation));
-          var marker = new google.maps.Marker({
-            map: mapThings.map,
-            position: results[idx].geometry.location
-          });
-        }
-
-      }
-      );});
-  }
+      var marker = new google.maps.Marker({
+        map: mapThings.map,
+        position: new google.maps.LatLng(ele.lat, ele.lng)
+      });
+    });
+  };
   module.mapThings = mapThings;
 })(app);
