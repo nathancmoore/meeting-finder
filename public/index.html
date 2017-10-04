@@ -40,7 +40,7 @@
       </nav>
   </header>
   <body>
-    <img src="/imgs/aa-logo.jpg" alt="Alcoholics Anonymous logo">
+    <!-- <img src="/imgs/aa-logo.jpg" alt="Alcoholics Anonymous logo"> -->
     <h1>Seattle AA Meeting Finder</h1>
     <div>
       <table>
@@ -51,7 +51,7 @@
           <option value="8">8 Miles</option>
           <option value="10">10 Miles</option>
         </select>
-        <input type="submit" value="Submit">
+        <input id ="submit" type="submit" value="Submit">
       </form>
       </table>
     </div>
@@ -98,12 +98,16 @@
   <script src="scripts/controllers/mapController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/controllers/dateController.js"></script>
+
   <script src="/scripts/controllers/routes.js" charset="utf-8"></script>
+
+  <script src="scripts/views/meetingTableView.js"></script>
 
   <script type="text/javascript">
     app.formData.formListener();
-    app.meetings.getAllMeetings();
-    app.meetings.dateFiltered();
+    app.meetings.getAllMeetings(app.tableView.populateTable);
+    $('#submit').click();
+    // app.tableView.populateTable();
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlz5afSBtdcxiXiYNLHoptazIrm5FvJ6A&libraries=geometry&callback=app.mapThings.initMap" async defer></script>
  
