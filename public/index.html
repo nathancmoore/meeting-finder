@@ -40,7 +40,7 @@
       </nav>
   </header>
   <body>
-    <img src="/imgs/aa-logo.jpg" alt="Alcoholics Anonymous logo">
+    <!-- <img src="/imgs/aa-logo.jpg" alt="Alcoholics Anonymous logo"> -->
     <h1>Seattle AA Meeting Finder</h1>
     <div>
       <table>
@@ -94,11 +94,13 @@
   <script src="scripts/controllers/mapController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/controllers/dateController.js"></script>
+  <script src="scripts/views/meetingTableView.js"></script>
 
   <script type="text/javascript">
     app.formData.formListener();
-    app.meetings.getAllMeetings();
+    app.meetings.getAllMeetings(app.tableView.populateTable);
     app.meetings.dateFiltered();
+    // app.tableView.populateTable();
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlz5afSBtdcxiXiYNLHoptazIrm5FvJ6A&libraries=geometry&callback=app.mapThings.initMap" async defer></script>
   <script src="/scripts/controllers/routes.js" charset="utf-8"></script>

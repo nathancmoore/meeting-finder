@@ -44,7 +44,8 @@ var app = app || {};
             meetings.all.push(newGuy);
           });
         }
-      );
+      )
+      .then(callback);
   };
 
   function weekdayDifference(weekday) {
