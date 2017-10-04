@@ -10,6 +10,7 @@ var app = app || {};
   mapThings.map;
   mapThings.infoWindow;
   mapThings.geocoder;
+  mapThings.initMap = initMap;
 
   function initMap() {
     mapThings.geocoder = new google.maps.Geocoder();
