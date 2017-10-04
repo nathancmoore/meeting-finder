@@ -57,6 +57,8 @@ app.get('*', (request, response) => {
       ,Format        VARCHAR(2)
       ,Accessibility VARCHAR(8)
       ,Updated       VARCHAR(20) NOT NULL
+      ,lat           VARCHAR(20) NOT NULL
+      ,lng           VARCHAR(20) NOT NULL
     );`
   )
     .then(() => {
@@ -68,11 +70,11 @@ app.get('*', (request, response) => {
               JSON.parse(fd.toString()).forEach(ele => {
                 if(ele.District) {
                   client.query(`
-                    INSERT INTO meetingDatabase(District,GSIG_Division,Status,Meeting_Name,Group_Name,Weekday,Time,End_Time,OC,Location_Name,Street,Suite,City,State,Zip,Room,Notes,Duration,Language,Environment,Specialty,Format,Accessibility,Updated)
-                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24) ON CONFLICT DO NOTHING`,
-                    [ele.District, ele.GSIG_Division, ele.Status, ele.Meeting_Name, ele.Group_Name, ele.Weekday, ele.Time, ele.End_Time, ele.OC, ele.Location_Name, ele.Street, ele.Suite, ele.City, ele.State, ele.Zip, ele.Room, ele.Notes, ele.Duration, ele.Language, ele.Environment, ele.Specialty, ele.Format, ele.Accessibility, ele.Updated]
+                    INSERT INTO meetingDatabase(District,GSIG_Division,Status,Meeting_Name,Group_Name,Weekday,Time,End_Time,OC,Location_Name,Street,Suite,City,State,Zip,Room,Notes,Duration,Language,Environment,Specialty,Format,Accessibility,Updated, lat, lng)
+                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26) ON CONFLICT DO NOTHING`,
+                    [ele.District, ele.GSIG_Division, ele.Status, ele.Meeting_Name, ele.Group_Name, ele.Weekday, ele.Time, ele.End_Time, ele.OC, ele.Location_Name, ele.Street, ele.Suite, ele.City, ele.State, ele.Zip, ele.Room, ele.Notes, ele.Duration, ele.Language, ele.Environment, ele.Specialty, ele.Format, ele.Accessibility, ele.Updated, ele.latlon.lat, ele.latlon.lng]
                   );
-                  ;}
+                }
               }
               );
             });
