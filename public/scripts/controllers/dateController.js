@@ -71,13 +71,15 @@ var app = app || {};
     return transformedTime;
   }
 
-  meetings.dateFiltered = () => {meetings.all.filter(meet => {
-    var mtgLocation = new google.maps.LatLng(meet.lat, meet.lng);
-    meet.distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(app.mapThings.userLocation, mtgLocation));
-    if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday && meet.distanceBetween <= app.formData.Submission.radiusString) {
-      meetings.filtered.push(meet);
-    }
-  });
+  meetings.dateFiltered = () => {
+    app.meetings.filtered = [];
+    meetings.all.filter(meet => {
+      var mtgLocation = new google.maps.LatLng(meet.lat, meet.lng);
+      meet.distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(app.mapThings.userLocation, mtgLocation));
+      if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday && meet.distanceBetween <= app.formData.Submission.radiusString) {
+        meetings.filtered.push(meet);
+      }
+    });
   };
   module.meetings = meetings;
 })(app);

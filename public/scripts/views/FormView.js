@@ -16,6 +16,7 @@ var app = app || {};
       formData.Submission.radiusString = $('#input-radius').val();
       // app.meetings.makeFormDate();
       console.log(formData.Submission);
+      app.meetings.dateFiltered();
     });
   };
 
