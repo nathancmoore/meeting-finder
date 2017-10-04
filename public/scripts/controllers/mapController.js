@@ -7,6 +7,7 @@ var app = app || {};
   mapController.index = () => {
     $('#map-area').show();
     $('#about-us').hide();
+
   };
 
 
