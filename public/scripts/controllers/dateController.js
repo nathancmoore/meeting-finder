@@ -37,7 +37,7 @@ var app = app || {};
     endOfToday = new Date();
     endOfToday.setHours(24, 0, 0, 0);
     console.log(todaysDate);
-  }
+  };
 
   meetings.getAllMeetings = function(callback) {
     $.get('/meetings')
@@ -48,7 +48,7 @@ var app = app || {};
             meetings.all.push(newGuy);
           });
         }
-      )
+      );
   };
 
   function weekdayDifference(weekday) {
@@ -77,11 +77,13 @@ var app = app || {};
   }
 
   meetings.dateFiltered = () => {meetings.all.filter(meet => {
+    var mtgLocation = new google.maps.LatLng();
+    var distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(mapThings.userLocation, mtgLocation));
     if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
       meetings.filtered.push(meet);
     }
-  })
-  }
+  });
+  };
 
   module.meetings = meetings;
 })(app);
