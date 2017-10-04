@@ -19,12 +19,8 @@ var app = app || {};
 
       console.log(formData.Submission);
 
-<<<<<<< HEAD
     })
   }
 
   module.formData = formData;
-=======
-  module.FormView = FormView;
->>>>>>> f0a7753af2e8209561cdce61031274b414280d26
 })(app);
