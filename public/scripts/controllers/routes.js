@@ -1,6 +1,9 @@
 'use strict';
+var app = app || {};
 
+// FIXME: Placeholders for actual routes.
+page('/about', app.aboutController.index);
+page('/map', app.mapController.index);
 page('/');
-// TODO: This is a route for the about controller after it is made. 
-// page('/about', app.aboutController.index);
+
 page();
