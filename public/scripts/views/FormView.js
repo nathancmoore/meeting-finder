@@ -19,8 +19,8 @@ var app = app || {};
 
       console.log(formData.Submission);
 
-    })
-  }
+    });
+  };
 
   module.formData = formData;
 })(app);

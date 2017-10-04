@@ -16,10 +16,6 @@ var app = app || {};
   var endOfToday = new Date();
   endOfToday.setHours(24, 0, 0, 0);
 
-  //I need to get form data (from calendarString) from FormView.js.
-  //calendarString in IIFE, called in index.html
-  //console logged, iife info not logging
-
   var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   var todaysWeekday = todaysDate.toString().substring(0, 3);
@@ -58,8 +54,6 @@ var app = app || {};
     return difference >= 0 ? difference : difference + 7;
   }
 
-  // 	＼(〇_ｏ)／
-
   function toMilitaryTime(time) {
     var transformedTime;
     if (time.substring(0, 2) === '12') {
@@ -77,13 +71,12 @@ var app = app || {};
   }
 
   meetings.dateFiltered = () => {meetings.all.filter(meet => {
-    var mtgLocation = new google.maps.LatLng();
-    var distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(mapThings.userLocation, mtgLocation));
-    if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
+    var mtgLocation = new google.maps.LatLng(meet.latlon.lat, meet.latlon.lng);
+    meet.distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(mapThings.userLocation, mtgLocation));
+    if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday && meet.distanceBetween <= formData.Submission.radiusString) {
       meetings.filtered.push(meet);
     }
   });
   };
-
   module.meetings = meetings;
 })(app);
