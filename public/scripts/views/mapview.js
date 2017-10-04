@@ -41,7 +41,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function makeMarkers() {
-  app.meetings.timeTarget.forEach((ele, idx) => {
+  app.meetings.filtered.forEach((ele, idx) => {
     geocoder.geocode({ 'address': ele.street}, function(results, status) {
       if (status === 'OK') {
         var mtgLocation = new google.maps.LatLng(results[idx].geometry.location.lat(),results[idx].geometry.location.lng())

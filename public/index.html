@@ -17,24 +17,24 @@
       <link rel="stylesheet" href="/css/layout.css">
       <link rel="stylesheet" href="/css/base.css">
 
-    <title> Meeting Finder</title>
+    <title>Meeting Finder</title>
   </head>
   <header>
-    <nav id="nav-bar"></nav>
+    <nav id="nav-bar">
+        <i class="fa fa-bars" id="hamburger-menu" aria-hidden="true"></i>
+          <ul class="nav-ul">
+            <li class="active"><a id="homeNav" href="/">Home</a></li>
+            <li><a id="mapNav" href="/map">Map</a></li>
+            <li><a id="aboutNav" href="/about">About</a></li>
+          </ul>
+      </nav>
   </header>
   <body>
-    <h1> Meeting </h1>
+    <img src="/imgs/aa-logo.jpg" alt="Alcoholics Anonymous logo">
+    <h1>Seattle AA Meeting Finder</h1>
     <div>
       <table>
       <form id="form">
-        <input id="input-date" type="date" val="">
-        <select name="Meeting Time" id="input-time">
-          <option value="05:00-11:59">Morning (5am - 12pm)</option>
-          <option value="12:00-15:59">Afternoon (12pm - 4pm)</option>
-          <option value="16:00-19:59">Evening (4pm - 8pm)</option>
-          <option value="20:00-23:59">Night (8pm+)</option>
-        </select>
-
         <select name="Search Radius" id="input-radius">
           <option value="2">2 Miles</option>
           <option value="5">5 Miles</option>
@@ -50,9 +50,10 @@
       <div id="google-map">
       </div>
     </div>
-        <section id="static-list">
-          <ul id="static-list-template">asdfasdf</ul>
-        </section>
+    <section id="meeting-list-area">
+      <ul id="list-ul">Today's Meetings In Your Area>
+      </ul>
+    </section>
 
     <section id="about-us">
       <div class="images-group" id="img-one">
@@ -78,11 +79,11 @@
   <script src="scripts/views/mapview.js"></script>
 
   <script src="scripts/models/form.js"></script>
- 
+
   <script src="scripts/controllers/mapController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/controllers/dateController.js"></script>
- 
+
   <script type="text/javascript">
     app.formData.formListener();
     app.meetings.getAllMeetings();

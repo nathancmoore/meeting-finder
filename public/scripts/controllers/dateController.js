@@ -27,7 +27,7 @@ var app = app || {};
   const meetings = {};
 
   meetings.all = [];
-  meetings.timeTarget = [];
+  meetings.filtered = [];
 
   meetings.makeFormDate = function() {
     let formYear = parseInt(app.formData.Submission.calendarString.substring(0, 4));
@@ -78,7 +78,7 @@ var app = app || {};
 
   meetings.dateFiltered = () => {meetings.all.filter(meet => {
     if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday) {
-      meetings.timeTarget.push(meet);
+      meetings.filtered.push(meet);
     }
   })
   }
