@@ -1,3 +1,7 @@
 #google-map{
   border: 2px double black!important;
 }
+
+@media all (max-width: 800px) {
+  
+}
