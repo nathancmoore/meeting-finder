@@ -57,6 +57,7 @@ var app = app || {};
             position: results[idx].geometry.location
           });
         }
+
       }
       );});
   }
