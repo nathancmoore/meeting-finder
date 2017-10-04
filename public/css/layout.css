@@ -1,5 +1,5 @@
 
-#map-area, html, body {
+/* #map-area, html, body {
   height: 100%;
   width: 100%;
 }
@@ -7,11 +7,11 @@
 #google-map {
   height: 80%;
   width: 80%;
-}
+} */
 
-@media all (max-width:800px){
-  img{
-  width: 40vw;
+@media all and (max-width:800px){
+  .image-class{
+  width: 20vw;
   }
   #map-area{
     display: flex;

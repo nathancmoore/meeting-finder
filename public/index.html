@@ -67,21 +67,21 @@
     </section>
 
     <section id="about-us">
-      <div class="images-group" id="img-one">
-        <img src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
-          <section id="bio-one">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias in iste illum hic esse adipisci sequi possimus reprehenderit porro, sed accusamus ut a incidunt dolores ducimus, ratione recusandae rerum soluta.</section>
+      <div class="about-div" id="img-one">
+        <img class="image-class"  src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
+          <div id="bio-div-one"><section id="bio-section-one">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias in iste illum hic esse adipisci sequi possimus reprehenderit porro, sed accusamus ut a incidunt dolores ducimus, ratione recusandae rerum soluta.</section></div>
       </div>
-      <div class="images-group" id="img-two">
-        <img src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
-          <section id="bio-two">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo dignissimos, sed minus quos voluptatibus doloribus magni voluptatum sunt nobis quia reiciendis neque provident minima debitis. Placeat laudantium sapiente quia iusto?</section>
+      <div class="about-div" id="img-two">
+        <img class="image-class" src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
+          <div id="bio-div-two"><section id="bio-section-two">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo dignissimos, sed minus quos voluptatibus doloribus magni voluptatum sunt nobis quia reiciendis neque provident minima debitis. Placeat laudantium sapiente quia iusto?</section></div>
       </div>
-      <div class="images-group" id="img-three">
-        <img src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
-          <section id="bio-three">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ab delectus veniam, quibusdam accusantium sit suscipit vitae nobis modi, nam eaque cumque voluptate recusandae minima praesentium nostrum! Voluptate, dolorem atque!</section>
+      <div class="about-div" id="img-three">
+        <img class="image-class" src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
+          <div id="bio-div-three"><section id="bio-section-three">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ab delectus veniam, quibusdam accusantium sit suscipit vitae nobis modi, nam eaque cumque voluptate recusandae minima praesentium nostrum! Voluptate, dolorem atque!</section></div>
       </div>
-      <div class="images-group" id="img-four">
-        <img src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
-          <section id="bio-four">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed illum culpa harum quas incidunt autem nostrum! Iste eaque, suscipit distinctio laboriosam, expedita corporis quibusdam, est voluptas nam similique rem commodi?</section>
+      <div class="about-div" id="img-four">
+        <img class="image-class" src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
+         <div id="bio-div-four"> <section id="bio-section-four">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed illum culpa harum quas incidunt autem nostrum! Iste eaque, suscipit distinctio laboriosam, expedita corporis quibusdam, est voluptas nam similique rem commodi?</section></div>
       </div>
     </section>
   </body>
@@ -89,11 +89,14 @@
   <script src="scripts/views/FormView.js"></script>
   <script src="scripts/views/mapview.js"></script>
 
-  <script src="scripts/models/form.js"></script>
+  <script src="scripts/models/form.js"></script> 
 
   <script src="scripts/controllers/mapController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/controllers/dateController.js"></script>
+
+  <script src="/scripts/controllers/routes.js" charset="utf-8"></script>
+
   <script src="scripts/views/meetingTableView.js"></script>
 
   <script type="text/javascript">
@@ -103,5 +106,5 @@
     // app.tableView.populateTable();
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlz5afSBtdcxiXiYNLHoptazIrm5FvJ6A&libraries=geometry&callback=app.mapThings.initMap" async defer></script>
-  <script src="/scripts/controllers/routes.js" charset="utf-8"></script>
+ 
 </html>
