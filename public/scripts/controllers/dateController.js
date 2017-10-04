@@ -16,6 +16,10 @@ var app = app || {};
   var endOfToday = new Date();
   endOfToday.setHours(24, 0, 0, 0);
 
+  //I need to get form data (from calendarString) from FormView.js.
+  //calendarString in IIFE, called in index.html
+  //console logged, iife info not logging
+
   var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   var todaysWeekday = todaysDate.toString().substring(0, 3);
@@ -24,7 +28,16 @@ var app = app || {};
 
   meetings.all = [];
   meetings.timeTarget = [];
-  //timeTarget should be an array of
+
+  meetings.makeFormDate = function() {
+    let formYear = parseInt(app.formData.Submission.calendarString.substring(0, 4));
+    let formMonth = parseInt(app.formData.Submission.calendarString.substring(5, 7));
+    let formDay = parseInt(app.formData.Submission.calendarString.substring(8));
+    todaysDate = new Date(formYear, formMonth, formDay);
+    endOfToday = new Date();
+    endOfToday.setHours(24, 0, 0, 0);
+    console.log(todaysDate);
+  }
 
   meetings.getAllMeetings = function(callback) {
     $.get('/meetings')
@@ -34,7 +47,6 @@ var app = app || {};
             var newGuy = new Meet(obj);
             meetings.all.push(newGuy);
           });
-          // callback();
         }
       )
   };

@@ -4,18 +4,23 @@ var app = app || {};
 
 (function (module) {
 
-  var Submission = {};
+  const formData  = {};
 
-  $('#form').on('submit', function(event) {
-    event.preventDefault();
+  formData.Submission = {};
 
-    Submission.calendarString = $('#input-date').val();
-    Submission.timeString = $('#input-time').val();
-    Submission.radiusString = $('#input-radius').val();
+  formData.formListener = function() {
+    $('#form').on('submit', function(event) {
+      event.preventDefault();
 
-    console.log(Submission);
+      formData.Submission.calendarString = $('#input-date').val();
+      formData.Submission.timeString = $('#input-time').val();
+      formData.Submission.radiusString = $('#input-radius').val();
+      app.meetings.makeFormDate();
 
-  })
+      console.log(formData.Submission);
 
-  module.FormView = FormView;
+    })
+  }
+
+  module.formData = formData;
 })(app);
