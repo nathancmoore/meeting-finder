@@ -25,15 +25,15 @@ var app = app || {};
   meetings.all = [];
   meetings.filtered = [];
 
-  meetings.makeFormDate = function() {
-    let formYear = parseInt(app.formData.Submission.calendarString.substring(0, 4));
-    let formMonth = parseInt(app.formData.Submission.calendarString.substring(5, 7));
-    let formDay = parseInt(app.formData.Submission.calendarString.substring(8));
-    todaysDate = new Date(formYear, formMonth, formDay);
-    endOfToday = new Date();
-    endOfToday.setHours(24, 0, 0, 0);
-    console.log(todaysDate);
-  };
+  // meetings.makeFormDate = function() {
+  //   let formYear = parseInt(app.formData.Submission.calendarString.substring(0, 4));
+  //   let formMonth = parseInt(app.formData.Submission.calendarString.substring(5, 7));
+  //   let formDay = parseInt(app.formData.Submission.calendarString.substring(8));
+  //   todaysDate = new Date(formYear, formMonth, formDay);
+  //   endOfToday = new Date();
+  //   endOfToday.setHours(24, 0, 0, 0);
+  //   console.log(todaysDate);
+  // };
 
   meetings.getAllMeetings = function(callback) {
     $.get('/meetings')
@@ -44,7 +44,8 @@ var app = app || {};
             meetings.all.push(newGuy);
           });
         }
-      );
+      )
+      .then(callback);
   };
 
   function weekdayDifference(weekday) {
@@ -71,9 +72,9 @@ var app = app || {};
   }
 
   meetings.dateFiltered = () => {meetings.all.filter(meet => {
-    var mtgLocation = new google.maps.LatLng(meet.latlon.lat, meet.latlon.lng);
-    meet.distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(mapThings.userLocation, mtgLocation));
-    if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday && meet.distanceBetween <= formData.Submission.radiusString) {
+    var mtgLocation = new google.maps.LatLng(meet.lat, meet.lng);
+    meet.distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(app.mapThings.userLocation, mtgLocation));
+    if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday && meet.distanceBetween <= app.formData.Submission.radiusString) {
       meetings.filtered.push(meet);
     }
   });
