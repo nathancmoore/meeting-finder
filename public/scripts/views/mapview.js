@@ -9,7 +9,7 @@ function initMap() {
   geocoder = new google.maps.Geocoder();
   map = new google.maps.Map(document.getElementById('google-map'), {
     center: {lat: 47.608, lng: -122.335167},
-    zoom: 6
+    zoom: 13
   });
   infoWindow = new google.maps.InfoWindow;
 
@@ -19,10 +19,10 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      userLocation = pos;
+      userLocation = new google.maps.LatLng(pos.lat, pos.lng);
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('User Location');
+      infoWindow.setContent('Current Location');
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
@@ -44,6 +44,9 @@ function makeMarkers() {
   app.meetings.timeTarget.forEach(ele => {
     geocoder.geocode( { 'address': ele.street}, function(results, status) {
       if (status === 'OK') {
+        var mtgLocation = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng())
+        var distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(userLocation, mtgLocation));
+        console.log(distanceBetween)
         var marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
