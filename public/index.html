@@ -73,10 +73,11 @@
   <!-- As the scripts change their file path we need to keep in mind to change these accordingly but have them setup for early deployment and tests -->
   <script src="scripts/views/FormView.js"></script>
   <script src="scripts/model/FormModel.js"></script>
-  
+
   <script src="scripts/controllers/dateController.js"></script>
   <!-- <script src="scripts/views/mapView.js"></script> -->
   <script type="text/javascript">
+    app.formData.formListener();
     app.meetings.getAllMeetings();
     app.meetings.dateFiltered();
   </script>
