@@ -37,6 +37,11 @@ var app = app || {};
     } else {
       handleLocationError(false, mapThings.infoWindow, mapThings.map.getCenter());
     }
+    google.maps.event.addDomListener(window, 'resize', function () {
+      var center = mapThings.map.getCenter();
+      google.maps.event.trigger(mapThings.map, 'resize');
+      mapThings.map.setCenter(center);
+    })
   };
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
