@@ -11,7 +11,7 @@
 
 @media all (max-width:800px){
   img{
-  width: 40vw;
+  width: 20vw;
   }
   #map-area{
     display: flex;
