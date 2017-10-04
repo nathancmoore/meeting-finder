@@ -17,13 +17,20 @@
       <link rel="stylesheet" href="/css/layout.css">
       <link rel="stylesheet" href="/css/base.css">
 
-    <title> Meeting Finder</title>
+    <title>Meeting Finder</title>
   </head>
   <header>
-    <nav id="nav-bar"></nav>
+    <nav id="nav-bar">
+        <i class="fa fa-bars" id="hamburger-menu" aria-hidden="true"></i>
+          <ul class="nav-ul">
+            <li class="active"><a id="homeNav" href="/">Home</a></li>
+            <li><a id="mapNav" href="/map">Map</a></li>
+            <li><a id="aboutNav" href="/about">About</a></li>
+          </ul>
+      </nav>
   </header>
   <body>
-    <h1> Meeting </h1>
+    <h1>Seattle AA Meeting Finder</h1>
     <div>
       <table>
       <form id="form">
@@ -78,11 +85,11 @@
   <script src="scripts/views/mapview.js"></script>
 
   <script src="scripts/models/form.js"></script>
- 
+
   <script src="scripts/controllers/mapController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/controllers/dateController.js"></script>
- 
+
   <script type="text/javascript">
     app.formData.formListener();
     app.meetings.getAllMeetings();
