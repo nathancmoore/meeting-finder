@@ -41,10 +41,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function makeMarkers() {
-  app.meetings.timeTarget.forEach(ele => {
+  app.meetings.timeTarget.forEach((ele, idx) => {
     geocoder.geocode( { 'address': ele.street}, function(results, status) {
       if (status === 'OK') {
-        var mtgLocation = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng())
+        var mtgLocation = new google.maps.LatLng(results[idx].geometry.location.lat(),results[idx].geometry.location.lng())
         var distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(userLocation, mtgLocation));
         console.log(distanceBetween)
         var marker = new google.maps.Marker({
