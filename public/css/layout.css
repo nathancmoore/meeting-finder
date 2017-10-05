@@ -16,7 +16,6 @@
   #map-area{
     display: flex;
     justify-content: center;
-    padding-top: 10vw;
     max-height: 140vw;
   }
 }
