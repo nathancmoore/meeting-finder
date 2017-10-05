@@ -44,6 +44,7 @@ header img {
   margin-top: 2%;
   font-size: medium;
   background: white;
+  width: 120px;
 }
 
 #submit {
@@ -51,7 +52,7 @@ header img {
   display: block;
   margin-bottom: 2%;
   margin-top: 0.5%;
-  font-size: large;
+  font-size: small;
   background: white;
 }
 
@@ -103,12 +104,16 @@ h1 {
   font-family: 'Comfortaa', cursive;
 }
 
-@media all and (min-width: 800px) {
+@media all and (min-width: 600px) {
   header img {
     width: 140px;
   }
 
   #input-radius {
     width: 200px;
+  }
+
+  #submit {
+    font-size: medium;
   }
 }
