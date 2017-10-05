@@ -62,22 +62,26 @@ h1 {
   margin: 4%;
 }
 
-#input-radius {
+#input-radius, #input-time {
   display: block;
   margin: auto;
-  margin-top: 2%;
+  margin-top: 0.5%;
   font-size: medium;
   background: white;
-  width: 120px;
+  width: 140px;
 }
 
 #submit {
   margin: auto;
   display: block;
   margin-bottom: 2%;
-  margin-top: 0.5%;
-  font-size: small;
-  background: white;
+  margin-top: 1%;
+  font: 15px arial, sans-serif;
+  background: #0066A2;
+  border-style: outset;
+  border-color: #0066A2;
+  color: white;
+  text-shadow: none;
 }
 
 h3 {
@@ -135,7 +139,7 @@ div .adp {
     padding: 1.5%;
   }
 
-  #input-radius {
+  #input-radius, #input-time {
     width: 200px;
   }
 
