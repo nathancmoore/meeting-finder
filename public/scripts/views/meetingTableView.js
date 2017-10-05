@@ -12,10 +12,10 @@ var app = app || {};
   tableView.meetTemplate = Handlebars.compile(tableView.sourceHTML);
 
   tableView.populateTable = function() {
-    app.meetings.all.forEach(function(meet) {
+    app.meetings.filtered.forEach(function(meet) {
       var newRawHTML = tableView.meetTemplate(meet);
       $('#meetings-table').append(newRawHTML);
-    })
-  }
+    });
+  };
   module.tableView = tableView;
 })(app);
