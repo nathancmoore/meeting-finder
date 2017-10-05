@@ -19,6 +19,10 @@ header img {
   padding: 1%;
 }
 
+#contact-links {
+  display: none;
+}
+
 #hamburger-menu {
   float: right;
   color: white;
@@ -151,6 +155,17 @@ section {
 
   #homeNav:hover, #aboutNav:hover, #mapNav:hover {
     color: gray;
+  }
+
+  #contact-links {
+    float: left;
+    color: white;
+    font-size: 5px;
+    margin-top: 5%;
+    margin-left: 8%;
+    position: absolute;
+    font-size: 18px;
+    visibility: visible;
   }
 
 }
