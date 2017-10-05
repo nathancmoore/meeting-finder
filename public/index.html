@@ -18,16 +18,13 @@
       <link rel="stylesheet" href="/css/base.css">
 
       <script id="meeting-template" type="text/x-handlebars-template">
-        <div id="meeting-div">
-          <tr>
-            <td>{{ weekday }}, {{ time }}-{{ end_time }}</td>
-            <td>{{ group_name }}</td>
-            <td>{{ location_name }}: {{ street }}{{ suite }}, {{ city }} {{ zip }} {{ room }}</td>
-            <td>{{ language }} {{ specialty }} {{ accessibility }} {{ format }}</td>
-          </tr>
-        </div>
+        <tr>
+          <td>{{ weekday }}, {{ time }}-{{ end_time }}</td>
+          <td>{{ group_name }}</td>
+          <td>{{ location_name }}: {{ street }}{{ suite }}, {{ city }} {{ zip }} {{ room }}</td>
+          <td>{{ language }} {{ specialty }} {{ accessibility }} {{ format }}</td>
+        </tr>
     </script>
-
     <title>Meeting Finder</title>
   </head>
   <header>
@@ -38,10 +35,10 @@
             <li><a id="mapNav" href="/map">Map</a></li>
             <li><a id="aboutNav" href="/about">About</a></li>
           </ul>
-      </nav>
+    </nav>
+    <img src="/imgs/aa-logo.jpg" alt="Alcoholics Anonymous logo">
   </header>
   <body>
-    <!-- <img src="/imgs/aa-logo.jpg" alt="Alcoholics Anonymous logo"> -->
     <h1>Seattle AA Meeting Finder</h1>
     <div>
       <table>
@@ -62,8 +59,8 @@
       </div>
     </div>
     <section>
-      <h3>Meetings In Your Area:</h3>
       <table>
+        <h3>Meetings In Your Area:</h3>
         <thead>
           <th>Time</th>
           <th>Group Name</th>
@@ -101,7 +98,7 @@
       </div>
     </div>
     </section>
-    
+
   </body>
   <!-- As the scripts change their file path we need to keep in mind to change these accordingly but have them setup for early deployment and tests -->
   <script src="scripts/views/FormView.js"></script>
