@@ -10,6 +10,7 @@ var app = app || {};
   mapThings.map;
   mapThings.infoWindow;
   mapThings.geocoder;
+  mapThings.markerWindow;
 
   mapThings.initMap = function initMap() {
     mapThings.geocoder = new google.maps.Geocoder();
@@ -42,6 +43,13 @@ var app = app || {};
       google.maps.event.trigger(mapThings.map, 'resize');
       mapThings.map.setCenter(center);
     })
+    var markerInfo = `<p>Test String</p>`;
+    mapThings.markerWindow = new google.maps.InfoWindow({
+      content: markerInfo
+    });
+    mapThings.marker.addListener('click', function() {
+      mapThings.markerWindow.open(mapThings.map, mapThings.marker)
+    });
   };
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
