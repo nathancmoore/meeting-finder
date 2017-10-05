@@ -39,13 +39,11 @@ header img {
 
 .nav-ul li a {
   color: white;
+  text-decoration: none;
 }
 
 .nav-ul li {
   display: inline;
-  background-color: rgba(156, 160, 161, 0.60);
-  border-radius: 4%;
-  border: thin solid black;
 }
 
 h1 {
@@ -147,7 +145,12 @@ section {
 
   .nav-ul {
     visibility: visible;
+    margin-top: 60px;
+    font-size: 20px;
   }
 
+  #homeNav:hover, #aboutNav:hover, #mapNav:hover {
+    color: gray;
+  }
 
 }
