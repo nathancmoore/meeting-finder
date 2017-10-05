@@ -7,7 +7,7 @@ const FS = require('fs');
 const PORT = process.env.PORT || 3000;
 const app = EXPRESS();
 
-const conString = process.env.DATABASE_URL || 'postgres://postgres:postgresPASSWORD123@localhost:5432/meetingfinder';
+const conString = `${process.env.DATABASE_URL}`;
 const client = new PG.Client(conString);
 
 app.use(bodyParser.json());
