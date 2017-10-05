@@ -1,5 +1,13 @@
-/* @media all and (max-width:800px){
-  #hide-about{
-    display: none;
+@media all and (max-width:800px){
+  #header-about-us {
+  position: relative;
+  right: 5vw;
+  padding-left: 5vw;
   }
-} */
+  #name-ul-div{
+    padding-left: 5vw;
+    display: flex;
+    padding-bottom: 10vw;
+  }
+
+}
