@@ -11,13 +11,19 @@ var app = app || {};
   mapThings.infoWindow;
   mapThings.geocoder;
   mapThings.markerWindow;
+  mapThings.directionsService;
+  mapThings.directionsDisplay;
 
   mapThings.initMap = function initMap() {
+    mapThings.directionsService = new google.maps.DirectionsService;
+    mapThings.directionsDisplay = new google.maps.DirectionsRenderer;
     mapThings.geocoder = new google.maps.Geocoder();
     mapThings.map = new google.maps.Map(document.getElementById('google-map'), {
       center: {lat: 47.608, lng: -122.335167},
       zoom: 13
     });
+    mapThings.directionsDisplay.setMap(mapThings.map);
+
     mapThings.infoWindow = new google.maps.InfoWindow;
 
     if(navigator.geolocation) {
@@ -43,13 +49,6 @@ var app = app || {};
       google.maps.event.trigger(mapThings.map, 'resize');
       mapThings.map.setCenter(center);
     })
-    var markerInfo = `<p>Test String</p>`;
-    mapThings.markerWindow = new google.maps.InfoWindow({
-      content: markerInfo
-    });
-    mapThings.marker.addListener('click', function() {
-      mapThings.markerWindow.open(mapThings.map, mapThings.marker)
-    });
   };
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -65,8 +64,28 @@ var app = app || {};
       var marker = new google.maps.Marker({
         map: mapThings.map,
         position: new google.maps.LatLng(ele.lat, ele.lng)
+      })
+      var infoMarker = new google.maps.InfoWindow({
+        content: `<p>${ele.group_name} at</p> <p>${ele.location_name}</p><p>starts at ${ele.time}.</p><input type="button" id="marker${idx}" onclick="alert('foo')" value="Get Directions">`
+      })
+      marker.addListener('click', function() {
+        infoMarker.open(mapThings.map, marker);
+      })
+      $(`#marker${idx}`).on('click', (directionsService, directionsDisplay) => {
+        console.log('Hi Nathan');
+        mapThings.directionsService.route({
+          origin: mapThings.userLocation,
+          destination: marker.position,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            mapThings.directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        })
       });
-    });
+    })
   };
   module.mapThings = mapThings;
 })(app);
