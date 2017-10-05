@@ -165,7 +165,7 @@ section {
     margin-left: 8%;
     position: absolute;
     font-size: 18px;
-    visibility: visible;
+    display: block !important;
   }
 
 }
