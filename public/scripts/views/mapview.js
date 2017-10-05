@@ -43,13 +43,6 @@ var app = app || {};
       google.maps.event.trigger(mapThings.map, 'resize');
       mapThings.map.setCenter(center);
     })
-    var markerInfo = `<p>Test String</p>`;
-    mapThings.markerWindow = new google.maps.InfoWindow({
-      content: markerInfo
-    });
-    mapThings.marker.addListener('click', function() {
-      mapThings.markerWindow.open(mapThings.map, mapThings.marker)
-    });
   };
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -65,7 +58,13 @@ var app = app || {};
       var marker = new google.maps.Marker({
         map: mapThings.map,
         position: new google.maps.LatLng(ele.lat, ele.lng)
-      });
+      })
+      var infoMarker = new google.maps.InfoWindow({
+        content: `<p>Test string</p>`
+      })
+      marker.addListener('click', function() {
+        infoMarker.open(mapThings.map, marker);
+      })
     });
   };
   module.mapThings = mapThings;
