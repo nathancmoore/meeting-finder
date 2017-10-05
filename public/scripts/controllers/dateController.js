@@ -7,9 +7,10 @@ var app = app || {};
   function Meet (rawSQLResults) {
     Object.assign(this, rawSQLResults);
     this.militaryTime = toMilitaryTime(rawSQLResults.time);
-    this.nextMeeting = new Date();
-    this.nextMeeting.setDate(todaysDate.getDate() + weekdayDifference(rawSQLResults.weekday));
-    this.nextMeeting.setHours(this.militaryTime.split(':')[0], this.militaryTime.split(':')[1], 0, 0);
+    this.timeBatch = calculateTimeBatch(this.militaryTime);
+    // this.nextMeeting = new Date();
+    // this.nextMeeting.setDate(todaysDate.getDate() + weekdayDifference(rawSQLResults.weekday));
+    // this.nextMeeting.setHours(this.militaryTime, this.militaryTime);
   }
 
   var todaysDate = new Date();
@@ -25,16 +26,6 @@ var app = app || {};
   meetings.all = [];
   meetings.filtered = [];
 
-  // meetings.makeFormDate = function() {
-  //   let formYear = parseInt(app.formData.Submission.calendarString.substring(0, 4));
-  //   let formMonth = parseInt(app.formData.Submission.calendarString.substring(5, 7));
-  //   let formDay = parseInt(app.formData.Submission.calendarString.substring(8));
-  //   todaysDate = new Date(formYear, formMonth, formDay);
-  //   endOfToday = new Date();
-  //   endOfToday.setHours(24, 0, 0, 0);
-  //   console.log(todaysDate);
-  // };
-
   meetings.getAllMeetings = function(callback) {
     $.get('/meetings')
       .then(
@@ -48,12 +39,12 @@ var app = app || {};
       .then(callback);
   };
 
-  function weekdayDifference(weekday) {
-    var dayIndex = todaysDate.getDay();
-    var meetIndex = daysOfWeek.indexOf(weekday);
-    var difference = meetIndex - dayIndex;
-    return difference >= 0 ? difference : difference + 7;
-  }
+  // function weekdayDifference(weekday) {
+  //   var dayIndex = todaysDate.getDay();
+  //   var meetIndex = daysOfWeek.indexOf(weekday);
+  //   var difference = meetIndex - dayIndex;
+  //   return difference >= 0 ? difference : difference + 7;
+  // }
 
   function toMilitaryTime(time) {
     var transformedTime;
@@ -68,7 +59,24 @@ var app = app || {};
     } else {
       transformedTime = time.split(' ')[0];
     }
-    return transformedTime;
+    var intermediateTime = transformedTime.replace(/:/ig, '');
+    if(intermediateTime.length === 3){
+      var finalTime = '0' + intermediateTime;
+      return finalTime;
+    }
+    return intermediateTime;
+  }
+
+  function calculateTimeBatch(milTime) {
+    if (milTime < 1159) {
+      return 'Morning';
+    } else if (milTime >= 1200 && milTime < 1659) {
+      return 'Afternoon';
+    } else if (milTime >= 1700 && milTime < 2059) {
+      return 'Evening';
+    } else {
+      return 'Night';
+    }
   }
 
   meetings.dateFiltered = () => {
@@ -76,7 +84,8 @@ var app = app || {};
     meetings.all.filter(meet => {
       var mtgLocation = new google.maps.LatLng(meet.lat, meet.lng);
       meet.distanceBetween = (0.000621371 * google.maps.geometry.spherical.computeDistanceBetween(app.mapThings.userLocation, mtgLocation));
-      if (meet.weekday.includes(todaysWeekday) && todaysDate < meet.nextMeeting && meet.nextMeeting < endOfToday && meet.distanceBetween <= app.formData.Submission.radiusString) {
+
+      if (meet.weekday.includes(todaysWeekday) && meet.distanceBetween <= app.formData.Submission.radiusString && meet.timeBatch === app.formData.Submission.timeString) {
         meetings.filtered.push(meet);
       }
     });
