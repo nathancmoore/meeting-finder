@@ -16,6 +16,7 @@ header img {
   margin: auto;
   display: block;
   width: 80px;
+  padding: 1%;
 }
 
 #nav-bar {
@@ -45,6 +46,10 @@ h1 {
   margin-top: 3%;
   font-family: 'Comfortaa', cursive;
   padding: 3%;
+}
+
+#map-div {
+  margin: 4%;
 }
 
 #input-radius {
@@ -113,6 +118,7 @@ section {
 
   h1 {
     font-size: 4vw;
+    padding: 1.5%;
   }
 
   #input-radius {
@@ -122,4 +128,10 @@ section {
   #submit {
     font-size: medium;
   }
+
+  #map-div {
+    margin: 0%;
+  }
+
+
 }
