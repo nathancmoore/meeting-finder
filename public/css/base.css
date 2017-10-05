@@ -62,10 +62,10 @@ h1 {
   margin: 4%;
 }
 
-#input-radius {
+#input-radius, #input-time {
   display: block;
   margin: auto;
-  margin-top: 2%;
+  margin-top: 0.5%;
   font-size: medium;
   background: white;
   width: 140px;
@@ -135,7 +135,7 @@ section {
     padding: 1.5%;
   }
 
-  #input-radius {
+  #input-radius, #input-time {
     width: 200px;
   }
 
