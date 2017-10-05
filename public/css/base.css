@@ -1,17 +1,25 @@
 #google-map{
   border: 2px double black!important;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #faf0e6;
 }
 
 header {
   background-color: #4E6177;
-  opacity: 0.8;
 }
 
 header img {
   width: 17vw;
   margin: auto;
   display: block;
-  opacity: 1.0;
+}
+
+#nav-bar {
+  position: absolute;
+  width: 100%;
 }
 
 .nav-ul {
@@ -25,6 +33,26 @@ header img {
 
 .nav-ul li {
   display: inline;
+  background-color: rgba(156, 160, 161, 0.60);
+  border-radius: 4%;
+  border: thin solid black;
+}
+
+#input-radius {
+  display: block;
+  margin: auto;
+  margin-top: 2%;
+  font-size: medium;
+  background: white;
+}
+
+#submit {
+  margin: auto;
+  display: block;
+  margin-bottom: 2%;
+  margin-top: 0.5%;
+  font-size: large;
+  background: white;
 }
 
 h3 {
@@ -34,7 +62,7 @@ h3 {
 }
 
 tr {
-  background-color: blanchedalmond;
+  background-color: whitesmoke;
   width: 80vw;
   text-align: center;
   border: thin solid black;
@@ -44,9 +72,10 @@ tr {
 }
 
 th {
-  background-color: grey;
+  background-color: #4E6177;
   color: white;
   vertical-align: middle;
+  font-family: 'Roboto', sans-serif;
 }
 
 td {
@@ -73,6 +102,12 @@ h1 {
   font-family: 'Comfortaa', cursive;
 }
 
-@media all and (max-width: 800px) {
+@media all and (min-width: 800px) {
+  header img {
+    width: 140px;
+  }
 
+  #input-radius {
+    width: 200px;
+  }
 }
