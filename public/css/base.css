@@ -15,6 +15,19 @@ header img {
   width: 17vw;
   margin: auto;
   display: block;
+  width: 80px;
+  padding: 1%;
+}
+
+#contact-links {
+  display: none;
+}
+
+#hamburger-menu {
+  float: right;
+  color: white;
+  font-size: 50px;
+  margin: 3.5%;
 }
 
 #nav-bar {
@@ -25,17 +38,28 @@ header img {
 .nav-ul {
   float: right;
   font-size: 2vw;
+  visibility: hidden;
 }
 
 .nav-ul li a {
   color: white;
+  text-decoration: none;
 }
 
 .nav-ul li {
   display: inline;
-  background-color: rgba(156, 160, 161, 0.60);
-  border-radius: 4%;
-  border: thin solid black;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 3%;
+  font-family: 'Comfortaa', cursive;
+  padding: 3%;
+}
+
+#map-div {
+  margin: 4%;
 }
 
 #input-radius {
@@ -44,6 +68,7 @@ header img {
   margin-top: 2%;
   font-size: medium;
   background: white;
+  width: 120px;
 }
 
 #submit {
@@ -51,7 +76,7 @@ header img {
   display: block;
   margin-bottom: 2%;
   margin-top: 0.5%;
-  font-size: large;
+  font-size: small;
   background: white;
 }
 
@@ -96,19 +121,51 @@ section {
   margin-left: 5vw;
 }
 
-h1 {
-  text-align: center;
-  font-size: 4vw;
-  margin-top: 3%;
-  font-family: 'Comfortaa', cursive;
-}
-
-@media all and (min-width: 800px) {
+@media all and (min-width: 600px) {
   header img {
     width: 140px;
+  }
+
+  h1 {
+    font-size: 4vw;
+    padding: 1.5%;
   }
 
   #input-radius {
     width: 200px;
   }
+
+  #submit {
+    font-size: medium;
+  }
+
+  #map-div {
+    margin: 0%;
+  }
+
+  #hamburger-menu {
+    visibility: hidden;
+  }
+
+  .nav-ul {
+    visibility: visible;
+    margin-top: 60px;
+    font-size: 20px;
+  }
+
+  #homeNav:hover, #aboutNav:hover, #mapNav:hover {
+    color: gray;
+  }
+
+  #contact-links {
+    float: left;
+    color: white;
+    font-size: 5px;
+    margin-top: 5%;
+    margin-left: 8%;
+    position: absolute;
+    font-size: 18px;
+    display: block !important;
+  }
+
 }
