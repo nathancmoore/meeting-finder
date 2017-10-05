@@ -48,7 +48,7 @@ var app = app || {};
       var center = mapThings.map.getCenter();
       google.maps.event.trigger(mapThings.map, 'resize');
       mapThings.map.setCenter(center);
-    })
+    });
   };
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -64,28 +64,32 @@ var app = app || {};
       var marker = new google.maps.Marker({
         map: mapThings.map,
         position: new google.maps.LatLng(ele.lat, ele.lng)
-      })
+      });
       var infoMarker = new google.maps.InfoWindow({
-        content: `<p>${ele.group_name} at</p> <p>${ele.location_name}</p><p>starts at ${ele.time}.</p><input type="button" id="marker${idx}" onclick="alert('foo')" value="Get Directions">`
-      })
-      marker.addListener('click', function() {
-        infoMarker.open(mapThings.map, marker);
-      })
-      $(`#marker${idx}`).on('click', (directionsService, directionsDisplay) => {
-        console.log('Hi Nathan');
-        mapThings.directionsService.route({
-          origin: mapThings.userLocation,
-          destination: marker.position,
+        content: `<p>${ele.group_name} at</p> <p>${ele.location_name}</p><p>starts at ${ele.time}.</p><input type="button" id="marker${idx}"
+        onclick="
+                (() => {
+        app.mapThings.directionsService.route({
+          origin: app.mapThings.userLocation,
+          destination: new google.maps.LatLng(${ele.lat}, ${ele.lng}),
           travelMode: 'DRIVING'
         }, function(response, status) {
+          console.log(response);
+          console.log(status);
           if (status === 'OK') {
-            mapThings.directionsDisplay.setDirections(response);
+            app.mapThings.directionsDisplay.setDirections(response);
           } else {
             window.alert('Directions request failed due to ' + status);
           }
-        })
+        });
+      })();
+
+        " value="Get Directions">`
       });
-    })
+      marker.addListener('click', function() {
+        infoMarker.open(mapThings.map, marker);
+      });
+    });
   };
   module.mapThings = mapThings;
 })(app);
