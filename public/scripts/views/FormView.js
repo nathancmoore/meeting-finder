@@ -14,10 +14,10 @@ var app = app || {};
       // formData.Submission.calendarString = $('#input-date').val();
       // formData.Submission.timeString = $('#input-time').val();
       formData.Submission.radiusString = $('#input-radius').val();
-      // app.meetings.makeFormDate();
-      console.log(formData.Submission);
+      app.mapThings.initMap();
       app.meetings.dateFiltered();
       app.mapThings.makeMarkers();
+      app.tableView.populateTable();
     });
   };
 
