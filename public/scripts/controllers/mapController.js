@@ -5,8 +5,9 @@ var app = app || {};
 (function(module) {
   const mapController = {};
   mapController.index = () => {
+    $('body > :not(#about-us)').show();
     $('#map-area').show();
-    $('#about-us').hide();
+    $('#meeting-table').show();
 
   };
 
