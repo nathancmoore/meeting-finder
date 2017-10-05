@@ -7,7 +7,7 @@ var app = app || {};
 
   aboutController.index = () => {
     $('body > :not(#about-us)').hide();
-    
+    $('#hide-about').css('visibility','hidden')
   };
 
 
