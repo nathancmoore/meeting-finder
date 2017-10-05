@@ -15,6 +15,7 @@ header img {
   width: 17vw;
   margin: auto;
   display: block;
+  width: 80px;
 }
 
 #nav-bar {
@@ -36,6 +37,14 @@ header img {
   background-color: rgba(156, 160, 161, 0.60);
   border-radius: 4%;
   border: thin solid black;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 3%;
+  font-family: 'Comfortaa', cursive;
+  padding: 3%;
 }
 
 #input-radius {
@@ -97,16 +106,13 @@ section {
   margin-left: 5vw;
 }
 
-h1 {
-  text-align: center;
-  font-size: 4vw;
-  margin-top: 3%;
-  font-family: 'Comfortaa', cursive;
-}
-
 @media all and (min-width: 600px) {
   header img {
     width: 140px;
+  }
+
+  h1 {
+    font-size: 4vw;
   }
 
   #input-radius {
