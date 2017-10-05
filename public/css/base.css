@@ -2,6 +2,27 @@
   border: 2px double black!important;
 }
 
+#meeting-div {
+  background-color: blanchedalmond;
+  width: 80vw;
+  text-align: center;
+  border: thin solid black;
+  padding: 1vh;
+  height: 5vh;
+}
+
+td {
+  padding: 2vw;
+}
+
+#meetings-table {
+  border-collapse: collapse;
+}
+
+td {
+  border: thin solid black;
+}
+
 @media all and (max-width: 800px) {
-  
+
 }

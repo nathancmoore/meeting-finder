@@ -18,13 +18,14 @@
       <link rel="stylesheet" href="/css/base.css">
 
       <script id="meeting-template" type="text/x-handlebars-template">
-        <tr>
-          <td>{{ weekday }}, {{ time }}-{{ end_time }}</td>
-          <td>{{ group_name }}</td>
-          <td>{{ location_name }}: {{ street }}, {{ suite }}, {{ city }} {{ zip }} {{ room }}</td>
-          <td>District {{ district }}, Division {{ gsig_division }}
-          <td>{{ language }} {{ specialty }} {{ accessibility }} {{ format }}</td>
-        </tr>
+        <div id="meeting-div">
+          <tr>
+            <td>{{ weekday }}, {{ time }}-{{ end_time }}</td>
+            <td>{{ group_name }}</td>
+            <td>{{ location_name }}: {{ street }}{{ suite }}, {{ city }} {{ zip }} {{ room }}</td>
+            <td>{{ language }} {{ specialty }} {{ accessibility }} {{ format }}</td>
+          </tr>
+        </div>
     </script>
 
     <title>Meeting Finder</title>
@@ -62,7 +63,15 @@
     </div>
     <section>
       <h3>Meetings In Your Area:</h3>
-      <table id="meetings-table">
+      <table>
+        <thead>
+          <th>Time</th>
+          <th>Group Name</th>
+          <th>Location</th>
+          <th>Other</th>
+        </thead>
+        <tbody id="meetings-table">
+        </tbody>
       </table>
     </section>
 
