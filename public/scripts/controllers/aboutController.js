@@ -7,6 +7,7 @@ var app = app || {};
 
   aboutController.index = () => {
     $('body > :not(#about-us)').hide();
+    $('#about-us').show();
     $('.about-div').hide();
 
     $('#name-jacob').on('click', function() {

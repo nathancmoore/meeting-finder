@@ -2,9 +2,7 @@
 var app = app || {};
 
 
+// page('/', );
 page('/about', app.aboutController.index);
-page('/home', app.mapController.index);
-// page('/list', app.)
-
 
 page();
