@@ -1,13 +1,49 @@
 @media all and (max-width:800px){
-  #header-about-us {
-  position: relative;
-  right: 5vw;
-  padding-left: 5vw;
+  #about-us{
+    margin: 0;
   }
-  #name-ul-div{
-    padding-left: 5vw;
-    display: flex;
-    padding-bottom: 10vw;
+  #header-about-us{
+    position: relative;
+    left: 2.5vw;
+    margin-right: 5vw;
+    font-family: 'Roboto', sans-serif;
   }
 
+  #name-ul-div{
+    display: flex;
+    padding-bottom: 10vw;
+    color: whitesmoke;
+  }
+
+  #name-jacob{
+    position: relative;
+    top: 5vw;
+    left: -1vw;
+  }
+
+  #name-chelsea{
+    position: relative;
+    left: 4vw;
+    top: 5vw;
+  }
+
+  #name-nathan{
+    position: relative;
+    top: 5vw;
+    right: -33vw;
+  }
+
+  #name-matt{
+    position: relative;
+    top: 5vw;
+    left: 38vw;
+  }
+
+  .fa-home:before {
+    font-size: 5vw;
+    content: "\f015";
+    position: relative;
+    top: 3.5vw;
+    right: -45vw;
+  }
 }
