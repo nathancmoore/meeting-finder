@@ -121,6 +121,10 @@ section {
   margin-left: 5vw;
 }
 
+div .adp {
+  font-weight: bold;
+}
+
 @media all and (min-width: 600px) {
   header img {
     width: 140px;
