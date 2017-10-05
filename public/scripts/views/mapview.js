@@ -20,7 +20,7 @@ var app = app || {};
     mapThings.geocoder = new google.maps.Geocoder();
     mapThings.map = new google.maps.Map(document.getElementById('google-map'), {
       center: {lat: 47.608, lng: -122.335167},
-      zoom: 13
+      zoom: 12
     });
     mapThings.directionsDisplay.setMap(mapThings.map);
 
@@ -66,7 +66,7 @@ var app = app || {};
         position: new google.maps.LatLng(ele.lat, ele.lng)
       });
       var infoMarker = new google.maps.InfoWindow({
-        content: `<p>${ele.group_name} at</p> <p>${ele.location_name}</p><p>starts at ${ele.time}.</p><input type="button" id="marker${idx}"
+        content: `<p>${ele.group_name} at</p> <p>${ele.location_name} (${ele.street})</p><p>starts at ${ele.time}.</p><input type="button" id="marker${idx}"
         onclick="
                 (() => {
         app.mapThings.directionsService.route({
@@ -78,6 +78,7 @@ var app = app || {};
           console.log(status);
           if (status === 'OK') {
             app.mapThings.directionsDisplay.setDirections(response);
+            app.mapThings.directionsDisplay.setPanel(document.getElementById('directionsBox'));
           } else {
             window.alert('Directions request failed due to ' + status);
           }
