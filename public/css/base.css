@@ -2,6 +2,62 @@
   border: 2px double black!important;
 }
 
+header {
+  background-color: rgba(126, 117, 186, 0.72);
+}
+
+header img {
+  width: 17vw;
+  margin: auto;
+}
+
+.nav-ul {
+  float: right;
+  font-size: 2vw;
+}
+
+.nav-ul li {
+  display: inline;
+  color: white;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2em;
+  padding: 2vh;
+}
+
+tr {
+  background-color: blanchedalmond;
+  width: 80vw;
+  text-align: center;
+  border: thin solid black;
+  padding: 1vh;
+  height: 7vh;
+  vertical-align: middle;
+}
+
+th {
+  background-color: grey;
+  color: white;
+  vertical-align: middle;
+}
+
+td {
+  border: thin solid black;
+  vertical-align: middle;
+  padding: 1%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90vw;
+}
+
+section {
+  margin-left: 5vw;
+}
+
 @media all and (max-width: 800px) {
-  
+
 }
