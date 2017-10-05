@@ -11,7 +11,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
       <script src="https://use.fontawesome.com/25669ba756.js"></script>
       <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-
+      <link href="https://fonts.googleapis.com/css?family=Comfortaa|Roboto" rel="stylesheet">
       <link rel="stylesheet" href="/css/reset.css">
       <link rel="stylesheet" href="/css/modules.css">
       <link rel="stylesheet" href="/css/layout.css">
@@ -41,16 +41,16 @@
   <body>
     <h1>Seattle AA Meeting Finder</h1>
     <div>
-      <table>
-      <form id="form">
-        <select name="Search Radius" id="input-radius">
-          <option value="2">2 Miles</option>
-          <option value="5">5 Miles</option>
-          <option value="8">8 Miles</option>
-          <option value="10">10 Miles</option>
-        </select>
-        <input id ="submit" type="submit" value="Submit">
-      </form>
+      <table id="map-form">
+        <form id="form">
+          <select name="Search Radius" id="input-radius">
+            <option value="2">2 Miles</option>
+            <option value="5">5 Miles</option>
+            <option value="8">8 Miles</option>
+            <option value="10">10 Miles</option>
+          </select>
+          <input id ="submit" type="submit" value="Submit">
+        </form>
       </table>
     </div>
 
