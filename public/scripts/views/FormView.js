@@ -17,6 +17,7 @@ var app = app || {};
       app.meetings.dateFiltered();
       app.mapThings.makeMarkers();
       $('#meetings-area').show();
+      $('#legend').show();
       app.tableView.populateTable();
     });
   };
