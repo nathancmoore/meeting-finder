@@ -223,7 +223,7 @@ section {
     visibility: hidden;
   }
 
-  #homeNav:hover, #aboutNav:hover, #mapNav:hover {
+  #homeNav:hover, #aboutNav:hover, {
     color: gray;
   }
 
