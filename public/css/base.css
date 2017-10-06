@@ -120,6 +120,10 @@ h3 {
   font-family: 'Comfortaa', cursive;
 }
 
+h4 {
+  text-align: center;
+}
+
 tr {
   background-color: whitesmoke;
   width: 80vw;
@@ -142,7 +146,7 @@ td {
   vertical-align: middle;
   padding: 1%;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.4vw;
+  font-size: 4.5vw;
 }
 
 table {
@@ -172,6 +176,10 @@ section {
   h2 {
   font-size: 17px;
   margin: 2%;
+  }
+
+  td {
+    font-size: 1.5vw;
   }
 
   #input-radius, #input-time {
