@@ -122,9 +122,12 @@ h3 {
 
 h4 {
   text-align: center;
+  margin: 2%;
+  font-size: large;
+  font-family: 'Comfortaa', cursive;
 }
 
-tr {
+#meetings-area tr {
   background-color: whitesmoke;
   width: 80vw;
   text-align: center;
@@ -132,6 +135,21 @@ tr {
   padding: 1vh;
   height: 7vh;
   vertical-align: middle;
+}
+
+#legend tbody tr td {
+  font-size: 3.5vw;
+  font-style: italic;
+  text-align: center;
+}
+
+#legend tbody tr {
+  height: 4vh;
+  background-color: white;
+}
+
+#legend thead tr th {
+  padding: 2%;
 }
 
 th {
@@ -180,6 +198,15 @@ section {
 
   td {
     font-size: 1.5vw;
+  }
+
+  #legend {
+    width: 50vw;
+    margin-left: 22%;
+  }
+
+  #legend tbody tr td {
+    font-size: 13px;
   }
 
   #input-radius, #input-time {
