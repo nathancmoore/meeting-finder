@@ -3,10 +3,11 @@
     margin: 0;
   }
   #header-about-us{
-    position: relative;
-    left: 2.5vw;
-    margin-right: 5vw;
+    margin: 0;
+    padding: 0;
+    border: 0;
     font-family: 'Roboto', sans-serif;
+    
   }
 
   #name-ul-div{
