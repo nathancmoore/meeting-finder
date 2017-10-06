@@ -24,30 +24,51 @@ header img {
 }
 
 #hamburger-menu {
-  float: right;
   color: white;
   font-size: 50px;
   margin: 3.5%;
-}
-
-#nav-bar {
   position: absolute;
-  width: 100%;
+  right: 10px;
+  z-index: 101;
 }
 
 .nav-ul {
-  float: right;
-  font-size: 2vw;
-  visibility: hidden;
+  flex-direction: column;
+  display: none;
 }
 
-.nav-ul li a {
+.nav-ul.opening {
+  display: block;
+}
+
+nav li {
+  border-bottom: 1px solid #f6f4e2;
+  position: relative;
+}
+
+nav li:last-child {
+  border-bottom: none;
+}
+
+nav a {
   color: white;
+  background: rgb(99, 166, 181);
+  display: block;
+  padding: 1.5em 4em 1.5em 3em;
   text-decoration: none;
 }
 
-.nav-ul li {
-  display: inline;
+.hamburger-menu, .hamburger-menu::before {
+  display: none;
+  display: block;
+  background: #b4b4ab;
+  height: 3px;
+  width: 2em;
+  border-radius: 3px;
+}
+
+.open .hamburger-menu::before {
+  display: none;
 }
 
 h1 {
@@ -56,6 +77,14 @@ h1 {
   margin-top: 3%;
   font-family: 'Comfortaa', cursive;
   padding: 3%;
+}
+
+h2 {
+  text-align: center;
+  font-size: 13px;
+  font-family: 'Comfortaa', cursive;
+  font-style: italic;
+  margin: 2% 5%;
 }
 
 #map-div {
@@ -68,7 +97,7 @@ h1 {
   margin-top: 0.5%;
   font-size: medium;
   background: white;
-  width: 140px;
+  width: 250px;
 }
 
 #submit {
@@ -137,10 +166,16 @@ section {
   h1 {
     font-size: 4vw;
     padding: 1.5%;
+    padding-bottom: 0;
+  }
+
+  h2 {
+  font-size: 17px;
+  margin: 2%;
   }
 
   #input-radius, #input-time {
-    width: 200px;
+    width: 300px;
   }
 
   #submit {
@@ -151,14 +186,33 @@ section {
     margin: 0%;
   }
 
-  #hamburger-menu {
-    visibility: hidden;
+  #nav-bar {
+  position: absolute;
+  width: 100%;
+  }
+
+  nav a {
+    display: inline;
+    padding: 1.5em;
   }
 
   .nav-ul {
-    visibility: visible;
-    margin-top: 60px;
-    font-size: 20px;
+    display: inline;
+    float: right;
+    font-size: 2vw;
+  }
+
+  .nav-ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-ul li {
+    display: inline;
+  }
+
+  #hamburger-menu {
+    visibility: hidden;
   }
 
   #homeNav:hover, #aboutNav:hover, #mapNav:hover {

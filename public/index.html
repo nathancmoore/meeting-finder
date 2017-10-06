@@ -44,16 +44,17 @@
   </header>
   <body>
     <h1>Seattle AA Meeting Finder</h1>
+    <h2>Information about and directions to today's Alcoholics Anonymous meetings in the Seattle area</h2>
     <div id="map-div">
       <table id="map-form">
         <form id="form">
-          <select name="Time of Day" id="input-time">
-            <option value="Morning">Morning</option>
-            <option value="Afternoon">Afternoon</option>
-            <option value="Evening">Evening</option>
-            <option value="Night">Night</option>
+          <select required name="Time of Day" id="input-time">
+            <option value="Morning">Morning (6:00AM - 11:59AM)</option>
+            <option value="Afternoon">Afternoon (12:00PM - 4:59PM)</option>
+            <option value="Evening">Evening (5:00PM - 8:59PM)</option>
+            <option value="Night">Night (9:00PM - 11:59PM)</option>
           </select>
-          <select name="Search Radius" id="input-radius">
+          <select required name="Search Radius" id="input-radius">
             <option value="1">1 Mile</option>
             <option value="2">2 Miles</option>
             <option value="3">3 Miles</option>
@@ -72,7 +73,8 @@
       <div id="google-map">
       </div>
     </div>
-    <div id="no-match">
+
+    <div id="directionsBox">
     </div>
     <section>
       <table>
@@ -101,7 +103,7 @@
       </div>
       <div class="about-div" id="person-two">
         <img class="image-class" src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
-          <div class="bio-class" id="bio-div-two"><section id="bio-section-two">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo dignissimos, sed minus quos voluptatibus doloribus magni voluptatum sunt nobis quia reiciendis neque provident minima debitis. Placeat laudantium sapiente quia iusto?</section></div>
+          <div class="bio-class" id="bio-div-two"><section id="bio-section-two">Chelsea is a part-time jazz DJ, and a full-time dog lover. She entered Code Fellows with a background in economics and politics, which she is excited combine with software development. When not coding, she enjoys reading, making mix playlists for friends, kayaking, and swing dancing.</section></div>
       </div>
       <div class="about-div" id="person-three">
         <img class="image-class" src="http://lorempixel.com/output/abstract-q-c-640-480-3.jpg" alt="">
@@ -115,6 +117,7 @@
 
   </body>
   <!-- As the scripts change their file path we need to keep in mind to change these accordingly but have them setup for early deployment and tests -->
+  <script src="scripts/views/hamburgerMenu.js"></script>
   <script src="scripts/views/FormView.js"></script>
   <script src="scripts/views/mapview.js"></script>
 
