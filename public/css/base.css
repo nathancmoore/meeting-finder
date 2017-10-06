@@ -139,7 +139,7 @@ h4 {
 }
 
 #legend, #meetings-area {
-  margin-left: 5vw;
+  margin-left: 6vw;
 }
 
 #legend tbody tr td {
@@ -169,7 +169,7 @@ td {
   vertical-align: middle;
   padding: 1%;
   font-family: 'Roboto', sans-serif;
-  font-size: 4.5vw;
+  font-size: 3.5vw;
 }
 
 table {
