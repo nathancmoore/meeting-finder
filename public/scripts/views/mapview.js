@@ -17,6 +17,7 @@ var app = app || {};
   mapThings.initMap = function initMap() {
     $('#meetings-area').hide();
     $('#legend').hide();
+    $('#about-us').hide();
     mapThings.directionsService = new google.maps.DirectionsService;
     mapThings.directionsDisplay = new google.maps.DirectionsRenderer;
     mapThings.geocoder = new google.maps.Geocoder();

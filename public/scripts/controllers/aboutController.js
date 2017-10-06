@@ -6,7 +6,7 @@ var app = app || {};
   const aboutController = {};
 
   aboutController.index = () => {
-    $('body > :not(#about-us)').hide();
+    $('body').children().hide();
     $('#about-us').show();
     $('.about-div').hide();
 
