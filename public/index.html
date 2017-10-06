@@ -21,8 +21,8 @@
         <tr>
           <td>{{ weekday }}, {{ time }}-{{ end_time }}</td>
           <td>{{ group_name }}</td>
-          <td>{{ location_name }}: {{ street }}{{ suite }}, {{ city }} {{ zip }} {{ room }}</td>
-          <td>{{ language }} {{ specialty }} {{ accessibility }} {{ format }}</td>
+          <td>{{ location_name }}: {{ street }}{{ suite }}, {{ city }} {{ zip }} {{ room }} {{ notes }}</td>
+          <td> {{ language }} {{ environment }} {{ specialty }} {{ accessibility }} {{ format }} </td>
         </tr>
     </script>
     <title>AA Meeting Finder</title>
@@ -186,11 +186,10 @@
 
   <script src="scripts/models/form.js"></script>
 
-  <script src="scripts/controllers/mapController.js"></script>
-  <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/controllers/dateController.js"></script>
-
+  <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/views/meetingTableView.js"></script>
+  <script src="scripts/controllers/routes.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     app.formData.formListener();
