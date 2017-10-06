@@ -8,14 +8,9 @@ var app = app || {};
     Object.assign(this, rawSQLResults);
     this.militaryTime = toMilitaryTime(rawSQLResults.time);
     this.timeBatch = calculateTimeBatch(this.militaryTime);
-    // this.nextMeeting = new Date();
-    // this.nextMeeting.setDate(todaysDate.getDate() + weekdayDifference(rawSQLResults.weekday));
-    // this.nextMeeting.setHours(this.militaryTime, this.militaryTime);
   }
 
   var todaysDate = new Date();
-  var endOfToday = new Date();
-  endOfToday.setHours(24, 0, 0, 0);
 
   var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -31,20 +26,13 @@ var app = app || {};
       .then(
         results => {
           results.forEach(obj => {
-            var newGuy = new Meet(obj);
-            meetings.all.push(newGuy);
+            var newObj = new Meet(obj);
+            meetings.all.push(newObj);
           });
         }
       )
       .then(callback);
   };
-
-  // function weekdayDifference(weekday) {
-  //   var dayIndex = todaysDate.getDay();
-  //   var meetIndex = daysOfWeek.indexOf(weekday);
-  //   var difference = meetIndex - dayIndex;
-  //   return difference >= 0 ? difference : difference + 7;
-  // }
 
   function toMilitaryTime(time) {
     var transformedTime;

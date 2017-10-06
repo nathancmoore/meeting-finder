@@ -44,16 +44,17 @@
   </header>
   <body>
     <h1>Seattle AA Meeting Finder</h1>
+    <h2>Information about and directions to today's Alcoholics Anonymous meetings in the Seattle area</h2>
     <div id="map-div">
       <table id="map-form">
         <form id="form">
-          <select name="Time of Day" id="input-time">
-            <option value="Morning">Morning</option>
-            <option value="Afternoon">Afternoon</option>
-            <option value="Evening">Evening</option>
-            <option value="Night">Night</option>
+          <select required name="Time of Day" id="input-time">
+            <option value="Morning">Morning (6:00AM - 11:59AM)</option>
+            <option value="Afternoon">Afternoon (12:00PM - 4:59PM)</option>
+            <option value="Evening">Evening (5:00PM - 8:59PM)</option>
+            <option value="Night">Night (9:00PM - 11:59PM)</option>
           </select>
-          <select name="Search Radius" id="input-radius">
+          <select required name="Search Radius" id="input-radius">
             <option value="1">1 Mile</option>
             <option value="2">2 Miles</option>
             <option value="3">3 Miles</option>
@@ -73,7 +74,7 @@
       <div id="google-map">
       </div>
     </div>
-    
+
     <div id="directionsBox">
     </div>
 
