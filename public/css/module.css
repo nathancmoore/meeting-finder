@@ -30,13 +30,13 @@
   #name-nathan{
     position: relative;
     top: 5vw;
-    right: -33vw;
+    right: -30vw;
   }
 
   #name-matt{
     position: relative;
     top: 5vw;
-    left: 38vw;
+    left: 34vw;
   }
 
   .fa-home:before {
@@ -45,5 +45,22 @@
     position: relative;
     top: 3.5vw;
     right: -45vw;
+    color: whitesmoke;
+  }
+
+  .image-class{
+    position: relative;
+    left: 40vw;
+    top: 8vw;
+  }
+
+  .bio-class{
+    position: relative;
+    top: 12vw;
+  }
+
+  .names-ul:hover{
+    cursor: pointer;
+    transform: scale(1.2);
   }
 }
