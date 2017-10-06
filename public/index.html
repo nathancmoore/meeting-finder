@@ -187,7 +187,6 @@
   <script src="scripts/models/form.js"></script>
 
   <script src="scripts/controllers/dateController.js"></script>
-  
   <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/views/meetingTableView.js"></script>
   <script src="scripts/controllers/routes.js" charset="utf-8"></script>
@@ -195,8 +194,8 @@
   <script type="text/javascript">
     app.formData.formListener();
     app.meetings.getAllMeetings(app.tableView.populateTable);
-    // app.tableView.populateTable();
   </script>
+  <script src="scripts/controllers/routes.js" charset="utf-8"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlz5afSBtdcxiXiYNLHoptazIrm5FvJ6A&libraries=geometry&callback=app.mapThings.initMap" async defer></script>
 
 </html>
