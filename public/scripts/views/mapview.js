@@ -23,7 +23,6 @@ var app = app || {};
       zoom: 12
     });
     mapThings.directionsDisplay.setMap(mapThings.map);
-
     mapThings.infoWindow = new google.maps.InfoWindow;
 
     if(navigator.geolocation) {
@@ -33,7 +32,6 @@ var app = app || {};
           lng: position.coords.longitude
         };
         mapThings.userLocation = new google.maps.LatLng(pos.lat, pos.lng);
-
         mapThings.infoWindow.setPosition(pos);
         mapThings.infoWindow.setContent('Your Location');
         mapThings.infoWindow.open(mapThings.map);
@@ -59,9 +57,6 @@ var app = app || {};
     infoWindow.open(mapThings.map);
   }
 
-  mapThings.marker;
-  mapThings.infoMarker;
-
   mapThings.makeMarkers = function () {
     app.meetings.filtered.forEach((ele, idx) => {
       var marker = new google.maps.Marker({
@@ -81,7 +76,6 @@ var app = app || {};
           console.log(status);
           if (status === 'OK') {
             app.mapThings.directionsDisplay.setDirections(response);
-            app.mapThings.directionsDisplay.setPanel(document.getElementById('directionsBox'));
           } else {
             window.alert('Directions request failed due to ' + status);
           }
