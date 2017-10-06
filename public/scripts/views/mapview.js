@@ -25,6 +25,7 @@ var app = app || {};
       center: {lat: 47.608, lng: -122.335167},
       zoom: 12
     });
+
     mapThings.directionsDisplay.setMap(mapThings.map);
     mapThings.infoWindow = new google.maps.InfoWindow;
 

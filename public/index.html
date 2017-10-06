@@ -3,7 +3,6 @@
   <head>
       <meta name="viewport" content="width=device-width">
       <meta charset="utf-8">
-
       <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -16,7 +15,6 @@
       <link rel="stylesheet" href="/css/layout.css">
       <link rel="stylesheet" href="/css/base.css">
       <link rel="stylesheet" href="/css/module.css">
-
       <script id="meeting-template" type="text/x-handlebars-template">
         <tr>
           <td>{{ weekday }}, {{ time }}-{{ end_time }}</td>
@@ -178,16 +176,14 @@
       </div>
 
   </body>
+  
   <script src="scripts/views/hamburgerMenu.js"></script>
   <script src="scripts/views/FormView.js"></script>
   <script src="scripts/views/mapview.js"></script>
-
   <script src="scripts/models/form.js"></script>
-
   <script src="scripts/controllers/dateController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/views/meetingTableView.js"></script>
-
   <script type="text/javascript">
     app.formData.formListener();
     app.meetings.getAllMeetings(app.tableView.populateTable);

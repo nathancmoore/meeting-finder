@@ -11,9 +11,7 @@ var app = app || {};
   }
 
   var todaysDate = new Date();
-
   var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
   var todaysWeekday = todaysDate.toString().substring(0, 3);
 
   const meetings = {};
@@ -78,5 +76,6 @@ var app = app || {};
       }
     });
   };
+
   module.meetings = meetings;
 })(app);

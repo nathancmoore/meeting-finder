@@ -5,10 +5,9 @@ const bodyParser = require('body-parser');
 const PG = require('pg');
 const FS = require('fs');
 const PORT = process.env.PORT || 3000;
-const app = EXPRESS();
-
 const conString = `${process.env.DATABASE_URL}`;
 const client = new PG.Client(conString);
+const app = EXPRESS();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -23,8 +22,6 @@ app.get('/meetings', (request, response) => {
     .then(result => response.send(result.rows))
     .catch(console.error);
 });
-
-//other requests go here.
 
 app.get('*', (request, response) => {
   response.sendFile('index.html', {root: './public'});
