@@ -58,6 +58,14 @@ h1 {
   padding: 3%;
 }
 
+h2 {
+  text-align: center;
+  font-size: 13px;
+  font-family: 'Comfortaa', cursive;
+  font-style: italic;
+  margin: 2% 5%;
+}
+
 #map-div {
   margin: 4%;
 }
@@ -137,6 +145,12 @@ div .adp {
   h1 {
     font-size: 4vw;
     padding: 1.5%;
+    padding-bottom: 0;
+  }
+
+  h2 {
+  font-size: 17px;
+  margin: 2%;
   }
 
   #input-radius, #input-time {
