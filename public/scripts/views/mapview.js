@@ -35,7 +35,7 @@ var app = app || {};
         mapThings.userLocation = new google.maps.LatLng(pos.lat, pos.lng);
 
         mapThings.infoWindow.setPosition(pos);
-        mapThings.infoWindow.setContent('Current Location');
+        mapThings.infoWindow.setContent('Your Location');
         mapThings.infoWindow.open(mapThings.map);
         mapThings.map.setCenter(pos);
       }, function() {
@@ -59,6 +59,9 @@ var app = app || {};
     infoWindow.open(mapThings.map);
   }
 
+  mapThings.marker;
+  mapThings.infoMarker;
+
   mapThings.makeMarkers = function () {
     app.meetings.filtered.forEach((ele, idx) => {
       var marker = new google.maps.Marker({
@@ -66,7 +69,7 @@ var app = app || {};
         position: new google.maps.LatLng(ele.lat, ele.lng)
       });
       var infoMarker = new google.maps.InfoWindow({
-        content: `<p>${ele.group_name} at</p> <p>${ele.location_name} (${ele.street})</p><p>starts at ${ele.time}.</p><input type="button" id="marker${idx}"
+        content: `<p class="info-bold">${ele.group_name}</p><p>${ele.location_name} (${ele.street})</p><p class="info-bold">${ele.time}</p><input type="button" id="marker${idx}"
         onclick="
                 (() => {
         app.mapThings.directionsService.route({
@@ -84,7 +87,6 @@ var app = app || {};
           }
         });
       })();
-
         " value="Get Directions">`
       });
       marker.addListener('click', function() {
