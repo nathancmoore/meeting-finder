@@ -13,21 +13,21 @@ var app = app || {};
     $('#name-jacob').on('click', function() {
       $('.about-div').hide();
       $('#person-one').toggle();
-    })
+    });
     $('#name-chelsea').on('click', function() {
       $('.about-div').hide();
       $('#person-two').toggle();
-    })
+    });
     $('#name-nathan').on('click', function() {
       $('.about-div').hide();
       $('#person-three').toggle();
-    })
+    });
     $('#name-matt').on('click', function() {
       $('.about-div').hide();
       $('#person-four').toggle();
-    })
+    });
+    $('#name-nathan').click();
   };
-
 
   module.aboutController = aboutController;
 })(app);

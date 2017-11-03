@@ -8,6 +8,5 @@ var app = app || {};
     $('body > :not(#about-us)').show();
   };
 
-
   module.mapController = mapController;
 })(app);

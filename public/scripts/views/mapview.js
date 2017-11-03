@@ -15,6 +15,10 @@ var app = app || {};
   mapThings.directionsDisplay;
 
   mapThings.initMap = function initMap() {
+    $('#meetings-area').hide();
+    $('#legend').hide();
+    $('#legend-thing').hide();
+    $('#about-us').hide();
     mapThings.directionsService = new google.maps.DirectionsService;
     mapThings.directionsDisplay = new google.maps.DirectionsRenderer;
     mapThings.geocoder = new google.maps.Geocoder();
@@ -22,6 +26,7 @@ var app = app || {};
       center: {lat: 47.608, lng: -122.335167},
       zoom: 12
     });
+
     mapThings.directionsDisplay.setMap(mapThings.map);
     mapThings.infoWindow = new google.maps.InfoWindow;
 

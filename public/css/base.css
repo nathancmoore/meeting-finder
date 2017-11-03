@@ -117,10 +117,18 @@ h3 {
   text-align: center;
   font-size: 2em;
   padding: 2vh;
+  padding-top: 3.5%;
   font-family: 'Comfortaa', cursive;
 }
 
-tr {
+h4 {
+  text-align: center;
+  margin: 2%;
+  font-size: large;
+  font-family: 'Comfortaa', cursive;
+}
+
+#meetings-area tr {
   background-color: whitesmoke;
   width: 80vw;
   text-align: center;
@@ -128,6 +136,25 @@ tr {
   padding: 1vh;
   height: 7vh;
   vertical-align: middle;
+}
+
+#legend, #meetings-area {
+  margin-left: 6vw;
+}
+
+#legend tbody tr td {
+  font-size: 3.5vw;
+  font-style: italic;
+  text-align: center;
+}
+
+#legend tbody tr {
+  height: 4vh;
+  background-color: white;
+}
+
+#legend thead tr th {
+  padding: 2%;
 }
 
 th {
@@ -142,16 +169,12 @@ td {
   vertical-align: middle;
   padding: 1%;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.4vw;
+  font-size: 3.5vw;
 }
 
 table {
   border-collapse: collapse;
   width: 90vw;
-}
-
-section {
-  margin-left: 5vw;
 }
 
 .info-bold {
@@ -172,6 +195,19 @@ section {
   h2 {
   font-size: 17px;
   margin: 2%;
+  }
+
+  td {
+    font-size: 1.5vw;
+  }
+
+  #legend {
+    width: 50vw;
+    margin-left: 22%;
+  }
+
+  #legend tbody tr td {
+    font-size: 13px;
   }
 
   #input-radius, #input-time {

@@ -4,8 +4,6 @@ var app = app || {};
 
 (function (module) {
 
-  //array of all objects being appended to page (after time/date and location filtering)
-
   const tableView = {};
 
   tableView.sourceHTML = $('#meeting-template').html();
