@@ -1,6 +1,6 @@
 'use strict';
 var app = app || {};
 
-page('/about', app.aboutController.index);
+page('/contact', app.aboutController.index);
 
 page();

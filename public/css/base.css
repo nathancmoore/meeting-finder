@@ -181,6 +181,23 @@ table {
   font-weight: bold;
 }
 
+#contact-blurb{
+  padding: 5%;
+  text-align: center;
+}
+
+#contact-info-ul{
+  text-align: center;
+}
+
+#nathan-email{
+  padding-bottom: 3.5%;
+}
+
+#contact-list{
+  font-weight: bold;
+}
+
 @media all and (min-width: 600px) {
   header img {
     width: 140px;
