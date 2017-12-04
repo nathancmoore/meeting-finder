@@ -18,7 +18,6 @@ var app = app || {};
     $('#meetings-area').hide();
     $('#legend').hide();
     $('#legend-thing').hide();
-    $('#about-us').hide();
     mapThings.directionsService = new google.maps.DirectionsService;
     mapThings.directionsDisplay = new google.maps.DirectionsRenderer;
     mapThings.geocoder = new google.maps.Geocoder();

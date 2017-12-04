@@ -25,128 +25,130 @@
     </script>
     <title>AA Meeting Finder</title>
   </head>
-  <header>
-    <div id="contact-links">
-      <p>info@seattleaa.org</p>
-      <p>(206)587-2838</p>
-    </div>
-    <nav id="nav-bar">
-        <i class="fa fa-bars" id="hamburger-menu" aria-hidden="true"></i>
-          <ul class="nav-ul">
-            <li class="active"><a id="homeNav" href="/">Home</a></li>
-            <li><a id="aboutNav" href="/contact">Contact</a></li>
-          </ul>
-    </nav>
-    <img src="/imgs/aa-logo-transparent.png" alt="Alcoholics Anonymous logo">
-  </header>
   <body>
-    <h1>Seattle AA Meeting Finder</h1>
-    <h2>Information about and directions to today's Alcoholics Anonymous meetings in the Seattle area</h2>
-    <div id="map-div">
-      <table id="map-form">
-        <form id="form">
-          <select required name="Time of Day" id="input-time">
-            <option value="Morning">Morning (6:00AM - 11:59AM)</option>
-            <option value="Afternoon">Afternoon (12:00PM - 4:59PM)</option>
-            <option value="Evening">Evening (5:00PM - 8:59PM)</option>
-            <option value="Night">Night (9:00PM - 11:59PM)</option>
-          </select>
-          <select required name="Search Radius" id="input-radius">
-            <option value="1">1 Mile</option>
-            <option value="2">2 Miles</option>
-            <option value="3">3 Miles</option>
-            <option value="4">4 Miles</option>
-            <option value="5">5 Miles</option>
-            <option value="8">8 Miles</option>
-            <option value="10">10 Miles</option>
-            <option value="15">15 Miles</option>
-            <option value="20">20 Miles</option>
-          </select>
-          <input id ="submit" type="submit" value="Submit">
-        </form>
-      </table>
-    </div>
-    <div id="map-area">
-      <div id="google-map">
+    <header>
+      <div id="contact-links">
+        <p>info@seattleaa.org</p>
+        <p>(206)587-2838</p>
       </div>
-    </div>
+      <nav id="nav-bar">
+          <i class="fa fa-bars" id="hamburger-menu" aria-hidden="true"></i>
+            <ul class="nav-ul">
+              <li class="active"><a id="homeNav" href="/">Home</a></li>
+              <li><a id="aboutNav" href="/contact">Contact</a></li>
+            </ul>
+      </nav>
+      <img src="/imgs/aa-logo-transparent.png" alt="Alcoholics Anonymous logo">
+  </header>
+    <section id="home-data">
+      <h1>Seattle AA Meeting Finder</h1>
+      <h2>Information about and directions to today's Alcoholics Anonymous meetings in the Seattle area</h2>
+      <div id="map-div">
+        <table id="map-form">
+          <form id="form">
+            <select required name="Time of Day" id="input-time">
+              <option value="Morning">Morning (6:00AM - 11:59AM)</option>
+              <option value="Afternoon">Afternoon (12:00PM - 4:59PM)</option>
+              <option value="Evening">Evening (5:00PM - 8:59PM)</option>
+              <option value="Night">Night (9:00PM - 11:59PM)</option>
+            </select>
+            <select required name="Search Radius" id="input-radius">
+              <option value="1">1 Mile</option>
+              <option value="2">2 Miles</option>
+              <option value="3">3 Miles</option>
+              <option value="4">4 Miles</option>
+              <option value="5">5 Miles</option>
+              <option value="8">8 Miles</option>
+              <option value="10">10 Miles</option>
+              <option value="15">15 Miles</option>
+              <option value="20">20 Miles</option>
+            </select>
+            <input id ="submit" type="submit" value="Submit">
+          </form>
+        </table>
+      </div>
+      <div id="map-area">
+        <div id="google-map">
+        </div>
+      </div>
 
-      <table id="legend">
-        <h4 id="legend-thing">Chart Legend</h4>
-        <thead>
-          <th>Key</th>
-          <th>Meeting Specialty</th>
-        </thead>
-        <tr>
-          <td>an</td>
-          <td>Al-Anon meeting at same time and location</td>
-        </tr>
-        <tr>
-          <td>at</td>
-          <td>Alateen meeting at same time and location</td>
-        </tr>
-        <tr>
-          <td>cc</td>
-          <td>Child care available</td>
-        </tr>
-        <tr>
-          <td>gs</td>
-          <td>LGBT-friendly</td>
-        </tr>
-        <tr>
-          <td>mo</td>
-          <td>Men only</td>
-        </tr>
-        <tr>
-          <td>wo</td>
-          <td>Women only</td>
-        </tr>
-        <tr>
-          <td>asl</td>
-          <td>ASL interpreter</td>
-        </tr>
-        <tr>
-          <td>sp</td>
-          <td>Speaker meeting</td>
-        </tr>
-        <tr>
-          <td>ls</td>
-          <td>Literature study</td>
-        </tr>
-        <tr>
-          <td>ss</td>
-          <td>Español</td>
-        </tr>
-        <tr>
-          <td>wb</td>
-          <td>Wheelchair-accessible bathrooms</td>
-        </tr>
-        <tr>
-          <td>we</td>
-          <td>Wheelchair-accessible entrance</td>
-        </tr>
-        <tr>
-          <td>wp</td>
-          <td>Wheelchair-accessible parking</td>
-        </tr>
-        <tr>
-          <td>yp</td>
-          <td>Young people's meeting</td>
-        </tr>
-      </table>
+        <table id="legend">
+          <h4 id="legend-thing">Chart Legend</h4>
+          <thead>
+            <th>Key</th>
+            <th>Meeting Specialty</th>
+          </thead>
+          <tr>
+            <td>an</td>
+            <td>Al-Anon meeting at same time and location</td>
+          </tr>
+          <tr>
+            <td>at</td>
+            <td>Alateen meeting at same time and location</td>
+          </tr>
+          <tr>
+            <td>cc</td>
+            <td>Child care available</td>
+          </tr>
+          <tr>
+            <td>gs</td>
+            <td>LGBT-friendly</td>
+          </tr>
+          <tr>
+            <td>mo</td>
+            <td>Men only</td>
+          </tr>
+          <tr>
+            <td>wo</td>
+            <td>Women only</td>
+          </tr>
+          <tr>
+            <td>asl</td>
+            <td>ASL interpreter</td>
+          </tr>
+          <tr>
+            <td>sp</td>
+            <td>Speaker meeting</td>
+          </tr>
+          <tr>
+            <td>ls</td>
+            <td>Literature study</td>
+          </tr>
+          <tr>
+            <td>ss</td>
+            <td>Español</td>
+          </tr>
+          <tr>
+            <td>wb</td>
+            <td>Wheelchair-accessible bathrooms</td>
+          </tr>
+          <tr>
+            <td>we</td>
+            <td>Wheelchair-accessible entrance</td>
+          </tr>
+          <tr>
+            <td>wp</td>
+            <td>Wheelchair-accessible parking</td>
+          </tr>
+          <tr>
+            <td>yp</td>
+            <td>Young people's meeting</td>
+          </tr>
+        </table>
 
-    <section id ="meetings-area">
-      <table>
-        <h3>Meetings In Your Area:</h3>
-        <thead>
-          <th>Time</th>
-          <th>Group Name</th>
-          <th>Location</th>
-          <th>Other</th>
-        </thead>
-        <tbody id="meetings-table">
-        </tbody>
-      </table>
+      <section id ="meetings-area">
+        <table>
+          <h3>Meetings In Your Area:</h3>
+          <thead>
+            <th>Time</th>
+            <th>Group Name</th>
+            <th>Location</th>
+            <th>Other</th>
+          </thead>
+          <tbody id="meetings-table">
+          </tbody>
+        </table>
+      </section>
     </section>
 
     <section id="contact">
@@ -172,8 +174,9 @@
   <script src="scripts/views/hamburgerMenu.js"></script>
   <script src="scripts/views/FormView.js"></script>
   <script src="scripts/views/mapview.js"></script>
-  <script src="scripts/models/form.js"></script>
+<!--   <script src="scripts/models/form.js"></script>-->
   <script src="scripts/controllers/dateController.js"></script>
+  <script src="scripts/controllers/mapController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
   <script src="scripts/views/meetingTableView.js"></script>
   <script type="text/javascript">

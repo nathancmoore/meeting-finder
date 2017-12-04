@@ -9,6 +9,10 @@
   width: 80%;
 }
 
+#home-data{
+  height: 100%;
+}
+
 @media all and (max-width:800px){
   .image-class{
   width: 20vw;

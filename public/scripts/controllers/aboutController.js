@@ -6,8 +6,9 @@ var app = app || {};
   const aboutController = {};
 
   aboutController.index = () => {
-    $('body > :not(#contact)').hide();
+    $('#home-data').hide();
     $('#contact').show();
+    console.log('about page')
   };
 
   module.aboutController = aboutController;
